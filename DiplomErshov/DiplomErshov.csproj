@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -14,6 +15,8 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,10 +38,51 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ControlzEx, Version=7.0.0.0, Culture=neutral, PublicKeyToken=69f1c32f803d307e, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.7.0.1\lib\net462\ControlzEx.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro, Version=2.0.0.0, Culture=neutral, PublicKeyToken=51482d6f650b2b3f, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.2.0.0\lib\net47\MahApps.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=2.1.4.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.2.1.4\lib\net462\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.MahApps, Version=0.3.0.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.MahApps.0.3.0\lib\net462\MaterialDesignThemes.MahApps.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=4.9.0.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.4.9.0\lib\net462\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.77\lib\net462\Microsoft.Xaml.Behaviors.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -60,6 +104,253 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PageFolder\AdministratorPageFolder\AdministratorAddPage.xaml.cs">
+      <DependentUpon>AdministratorAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\AdministratorPageFolder\AdministratorEditPage.xaml.cs">
+      <DependentUpon>AdministratorEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\AdministratorPageFolder\AdministratorListPage.xaml.cs">
+      <DependentUpon>AdministratorListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\AdministratorPageFolder\PasswordMaskConverterClass.cs" />
+    <Compile Include="PageFolder\DirectorPageFolder\DirectorAddPage.xaml.cs">
+      <DependentUpon>DirectorAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\DirectorPageFolder\DirectorEditPage.xaml.cs">
+      <DependentUpon>DirectorEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\DirectorPageFolder\DirectorListPage.xaml.cs">
+      <DependentUpon>DirectorListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\ComputerCaseFolder\ComputerCaseAddPage.xaml.cs">
+      <DependentUpon>ComputerCaseAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\ComputerCaseFolder\ComputerCaseEditPage.xaml.cs">
+      <DependentUpon>ComputerCaseEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\ComputerCaseFolder\ComputerCaseListPage.xaml.cs">
+      <DependentUpon>ComputerCaseListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\CPUCoolingFolder\CPUCoolingAddPage.xaml.cs">
+      <DependentUpon>CPUCoolingAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\CPUCoolingFolder\CPUCoolingEditPage.xaml.cs">
+      <DependentUpon>CPUCoolingEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\CPUCoolingFolder\CPUCoolingListPage.xaml.cs">
+      <DependentUpon>CPUCoolingListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\CPUFolder\CPUAddPage.xaml.cs">
+      <DependentUpon>CPUAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\CPUFolder\CPUEditPage.xaml.cs">
+      <DependentUpon>CPUEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\CPUFolder\CPUListPage.xaml.cs">
+      <DependentUpon>CPUListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\GPUFolder\GPUAddPage.xaml.cs">
+      <DependentUpon>GPUAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\GPUFolder\GPUEditPage.xaml.cs">
+      <DependentUpon>GPUEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\GPUFolder\GPUListPage.xaml.cs">
+      <DependentUpon>GPUListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\HDDFolder\HDDAddPage.xaml.cs">
+      <DependentUpon>HDDAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\HDDFolder\HDDEditPage.xaml.cs">
+      <DependentUpon>HDDEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\HDDFolder\HDDListPage.xaml.cs">
+      <DependentUpon>HDDListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\MotherBoardFolder\MotherBoardAddPage.xaml.cs">
+      <DependentUpon>MotherBoardAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\MotherBoardFolder\MotherBoardEditPage.xaml.cs">
+      <DependentUpon>MotherBoardEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\MotherBoardFolder\MotherBoardListPage.xaml.cs">
+      <DependentUpon>MotherBoardListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\PowerSupplyFolder\PowerSupplyAddPage.xaml.cs">
+      <DependentUpon>PowerSupplyAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\PowerSupplyFolder\PowerSupplyEditPage.xaml.cs">
+      <DependentUpon>PowerSupplyEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\PowerSupplyFolder\PowerSupplyListPage.xaml.cs">
+      <DependentUpon>PowerSupplyListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\RAM1Folder\RAM1ADDPage.xaml.cs">
+      <DependentUpon>RAM1ADDPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\RAM1Folder\RAM1EditPage.xaml.cs">
+      <DependentUpon>RAM1EditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\RAM1Folder\RAM1ListPage.xaml.cs">
+      <DependentUpon>RAM1ListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\RAM2Folder\RAM2AddPage.xaml.cs">
+      <DependentUpon>RAM2AddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\RAM2Folder\RAM2EditPage.xaml.cs">
+      <DependentUpon>RAM2EditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\RAM2Folder\RAM2ListPage.xaml.cs">
+      <DependentUpon>RAM2ListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\RAM3Folder\RAM3AddPage.xaml.cs">
+      <DependentUpon>RAM3AddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\RAM3Folder\RAM3EditPage.xaml.cs">
+      <DependentUpon>RAM3EditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\RAM3Folder\RAM3ListPage.xaml.cs">
+      <DependentUpon>RAM3ListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\RAM4Folder\RAM4AddPage.xaml.cs">
+      <DependentUpon>RAM4AddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\RAM4Folder\RAM4EditPage.xaml.cs">
+      <DependentUpon>RAM4EditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\RAM4Folder\RAM4ListPage.xaml.cs">
+      <DependentUpon>RAM4ListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\RAMFolder\RAMAddPage.xaml.cs">
+      <DependentUpon>RAMAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\RAMFolder\RAMEditPage.xaml.cs">
+      <DependentUpon>RAMEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\RAMFolder\RAMListPage.xaml.cs">
+      <DependentUpon>RAMListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\SSDFolder\SSDAddPage.xaml.cs">
+      <DependentUpon>SSDAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\SSDFolder\SSDEditPage.xaml.cs">
+      <DependentUpon>SSDEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\SSDFolder\SSDListPage.xaml.cs">
+      <DependentUpon>SSDListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputersFolder\ComputersAddPage.xaml.cs">
+      <DependentUpon>ComputersAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputersFolder\ComputersEditPage.xaml.cs">
+      <DependentUpon>ComputersEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\ComputersFolder\ComputersListPage.xaml.cs">
+      <DependentUpon>ComputersListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\OfficeStorageFolder\OfficeStorageAddPage.xaml.cs">
+      <DependentUpon>OfficeStorageAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\OfficeStorageFolder\OfficeStorageEditPage.xaml.cs">
+      <DependentUpon>OfficeStorageEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\OfficeStorageFolder\OfficeStorageListPage.xaml.cs">
+      <DependentUpon>OfficeStorageListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\PeripheryFolder\ComputerMouseFolder\ComputerMouseAddPage.xaml.cs">
+      <DependentUpon>ComputerMouseAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\PeripheryFolder\ComputerMouseFolder\ComputerMouseEditPage.xaml.cs">
+      <DependentUpon>ComputerMouseEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\PeripheryFolder\ComputerMouseFolder\ComputerMouseListPage.xaml.cs">
+      <DependentUpon>ComputerMouseListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\PeripheryFolder\GarnitureFolder\GarnitureAddPage.xaml.cs">
+      <DependentUpon>GarnitureAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\PeripheryFolder\GarnitureFolder\GarnitureEditPage.xaml.cs">
+      <DependentUpon>GarnitureEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\PeripheryFolder\GarnitureFolder\GarnitureListPage.xaml.cs">
+      <DependentUpon>GarnitureListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\PeripheryFolder\HeadphonesFolder\HeadphonesAddPage.xaml.cs">
+      <DependentUpon>HeadphonesAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\PeripheryFolder\HeadphonesFolder\HeadphonesEditPage.xaml.cs">
+      <DependentUpon>HeadphonesEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\PeripheryFolder\HeadphonesFolder\HeadphonesListPage.xaml.cs">
+      <DependentUpon>HeadphonesListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\PeripheryFolder\KeyboardFolder\KeyboardAddPage.xaml.cs">
+      <DependentUpon>KeyboardAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\PeripheryFolder\KeyboardFolder\KeyboardEditPage.xaml.cs">
+      <DependentUpon>KeyboardEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\PeripheryFolder\KeyboardFolder\KeyboardListPage.xaml.cs">
+      <DependentUpon>KeyboardListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\PeripheryFolder\MicrophoneFolder\MicrophoneAddPage.xaml.cs">
+      <DependentUpon>MicrophoneAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\PeripheryFolder\MicrophoneFolder\MicrophoneEditPage.xaml.cs">
+      <DependentUpon>MicrophoneEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\PeripheryFolder\MicrophoneFolder\MicrophoneListPage.xaml.cs">
+      <DependentUpon>MicrophoneListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\PeripheryFolder\MonitorFolder\MonitorAddPage.xaml.cs">
+      <DependentUpon>MonitorAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\PeripheryFolder\MonitorFolder\MonitorEditPage.xaml.cs">
+      <DependentUpon>MonitorEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\PeripheryFolder\MonitorFolder\MonitorListPage.xaml.cs">
+      <DependentUpon>MonitorListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\PeripheryFolder\PrinterFolder\PrinterAddPage.xaml.cs">
+      <DependentUpon>PrinterAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\PeripheryFolder\PrinterFolder\PrinterEditPage.xaml.cs">
+      <DependentUpon>PrinterEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\PeripheryFolder\PrinterFolder\PrinterListPage.xaml.cs">
+      <DependentUpon>PrinterListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\PeripheryFolder\ScannerFolder\ScannerAddPage.xaml.cs">
+      <DependentUpon>ScannerAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\PeripheryFolder\ScannerFolder\ScannerEditPage.xaml.cs">
+      <DependentUpon>ScannerEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\PeripheryFolder\ScannerFolder\ScannerListPage.xaml.cs">
+      <DependentUpon>ScannerListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\PeripheryFolder\WebCameraFolder\WebCameraAddPage.xaml.cs">
+      <DependentUpon>WebCameraAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\PeripheryFolder\WebCameraFolder\WebCameraEditPage.xaml.cs">
+      <DependentUpon>WebCameraEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePageFolder\PeripheryFolder\WebCameraFolder\WebCameraListPage.xaml.cs">
+      <DependentUpon>WebCameraListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowFolder\AdministratorWindowFolder\AdministratorMenuWindow.xaml.cs">
+      <DependentUpon>AdministratorMenuWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowFolder\AuthorizationWindow.xaml.cs">
+      <DependentUpon>AuthorizationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowFolder\DirectorWindowFolder\DirectorMenuWindow.xaml.cs">
+      <DependentUpon>DirectorMenuWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowFolder\EmployeeWindowFolder\EmployeeMenuWindow.xaml.cs">
+      <DependentUpon>EmployeeMenuWindow.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -215,11 +506,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="PageFolder\" />
-    <Folder Include="ResourceFolder\" />
-    <Folder Include="WindowFolder\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="DataFolder\DBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -231,9 +518,367 @@
       <DependentUpon>DBModel.edmx</DependentUpon>
       <LastGenOutput>DBModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="ResourceFolder\ImageFolder\AdmImage.png" />
+    <Resource Include="ResourceFolder\ImageFolder\AuthImage.png" />
+    <Resource Include="ResourceFolder\ImageFolder\BackgroundAuth.png" />
+    <Resource Include="ResourceFolder\ImageFolder\BigMainMenuBackground.png" />
+    <Resource Include="ResourceFolder\ImageFolder\ComputerIcon.png" />
+    <Resource Include="ResourceFolder\ImageFolder\DirImage.png" />
+    <Resource Include="ResourceFolder\ImageFolder\EmpImage.png" />
+    <Resource Include="ResourceFolder\ImageFolder\ListAdmIcon.png" />
+    <Resource Include="ResourceFolder\ImageFolder\Logo.png" />
+    <Resource Include="ResourceFolder\ImageFolder\Logout.png" />
+    <Resource Include="ResourceFolder\ImageFolder\MainMenuBackground.png" />
+    <Resource Include="ResourceFolder\ImageFolder\SearchIcon.png" />
+    <Resource Include="ResourceFolder\ImageFolder\StaffIcon.png" />
+    <Resource Include="ResourceFolder\ImageFolder\WorkSpaceIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup>
+    <Page Include="PageFolder\AdministratorPageFolder\AdministratorAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\AdministratorPageFolder\AdministratorEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\AdministratorPageFolder\AdministratorListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\DirectorPageFolder\DirectorAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\DirectorPageFolder\DirectorEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\DirectorPageFolder\DirectorListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\ComputerCaseFolder\ComputerCaseAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\ComputerCaseFolder\ComputerCaseEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\ComputerCaseFolder\ComputerCaseListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\CPUCoolingFolder\CPUCoolingAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\CPUCoolingFolder\CPUCoolingEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\CPUCoolingFolder\CPUCoolingListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\CPUFolder\CPUAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\CPUFolder\CPUEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\CPUFolder\CPUListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\GPUFolder\GPUAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\GPUFolder\GPUEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\GPUFolder\GPUListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\HDDFolder\HDDAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\HDDFolder\HDDEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\HDDFolder\HDDListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\MotherBoardFolder\MotherBoardAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\MotherBoardFolder\MotherBoardEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\MotherBoardFolder\MotherBoardListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\PowerSupplyFolder\PowerSupplyAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\PowerSupplyFolder\PowerSupplyEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\PowerSupplyFolder\PowerSupplyListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\RAM1Folder\RAM1ADDPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\RAM1Folder\RAM1EditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\RAM1Folder\RAM1ListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\RAM2Folder\RAM2AddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\RAM2Folder\RAM2EditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\RAM2Folder\RAM2ListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\RAM3Folder\RAM3AddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\RAM3Folder\RAM3EditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\RAM3Folder\RAM3ListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\RAM4Folder\RAM4AddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\RAM4Folder\RAM4EditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\RAM4Folder\RAM4ListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\RAMFolder\RAMAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\RAMFolder\RAMEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\RAMFolder\RAMListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\SSDFolder\SSDAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\SSDFolder\SSDEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputerComponentsFolder\SSDFolder\SSDListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputersFolder\ComputersAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputersFolder\ComputersEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\ComputersFolder\ComputersListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\OfficeStorageFolder\OfficeStorageAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\OfficeStorageFolder\OfficeStorageEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\OfficeStorageFolder\OfficeStorageListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\PeripheryFolder\ComputerMouseFolder\ComputerMouseAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\PeripheryFolder\ComputerMouseFolder\ComputerMouseEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\PeripheryFolder\ComputerMouseFolder\ComputerMouseListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\PeripheryFolder\GarnitureFolder\GarnitureAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\PeripheryFolder\GarnitureFolder\GarnitureEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\PeripheryFolder\GarnitureFolder\GarnitureListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\PeripheryFolder\HeadphonesFolder\HeadphonesAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\PeripheryFolder\HeadphonesFolder\HeadphonesEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\PeripheryFolder\HeadphonesFolder\HeadphonesListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\PeripheryFolder\KeyboardFolder\KeyboardAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\PeripheryFolder\KeyboardFolder\KeyboardEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\PeripheryFolder\KeyboardFolder\KeyboardListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\PeripheryFolder\MicrophoneFolder\MicrophoneAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\PeripheryFolder\MicrophoneFolder\MicrophoneEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\PeripheryFolder\MicrophoneFolder\MicrophoneListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\PeripheryFolder\MonitorFolder\MonitorAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\PeripheryFolder\MonitorFolder\MonitorEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\PeripheryFolder\MonitorFolder\MonitorListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\PeripheryFolder\PrinterFolder\PrinterAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\PeripheryFolder\PrinterFolder\PrinterEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\PeripheryFolder\PrinterFolder\PrinterListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\PeripheryFolder\ScannerFolder\ScannerAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\PeripheryFolder\ScannerFolder\ScannerEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\PeripheryFolder\ScannerFolder\ScannerListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\PeripheryFolder\WebCameraFolder\WebCameraAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\PeripheryFolder\WebCameraFolder\WebCameraEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePageFolder\PeripheryFolder\WebCameraFolder\WebCameraListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ResourceFolder\Dictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowFolder\AdministratorWindowFolder\AdministratorMenuWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowFolder\AuthorizationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowFolder\DirectorWindowFolder\DirectorMenuWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowFolder\EmployeeWindowFolder\EmployeeMenuWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
+  <Import Project="..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />
 </Project>

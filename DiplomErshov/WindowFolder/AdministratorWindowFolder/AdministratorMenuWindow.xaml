@@ -1,0 +1,118 @@
+﻿<Window x:Class="DiplomErshov.WindowFolder.AdministratorWindowFolder.AdministratorMenuWindow"
+                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:DiplomErshov.WindowFolder.AdministratorWindowFolder"
+        mc:Ignorable="d"
+        Title="Авторизация"
+        Height="600"
+        MaxHeight="600"
+        MinHeight="600"
+        Width="1000"
+        MaxWidth="1000"
+        MinWidth="1000"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Icon="/ResourceFolder/ImageFolder/Logo.png"
+        StateChanged="Window_StateChanged">
+
+    <Window.Background>
+        <ImageBrush ImageSource="/ResourceFolder/ImageFolder/MainMenuBackground.png"/>
+    </Window.Background>
+    <Border>
+        <Grid>
+            <Border x:Name="BorderTop"
+                    VerticalAlignment="Top"
+                    Height="55"
+                    Background="Transparent"
+                    MouseDown="BorderTop_MouseDown">
+            </Border>
+
+            <Image Source="/ResourceFolder/ImageFolder/Logo.png"
+                   Style="{StaticResource LogoMenu}" Margin="20,20,870,470"/>
+            <materialDesign:PackIcon x:Name="Minimize"
+                                     Kind="Minimize"
+                                     Margin="930,10,0,0"
+                                     MouseLeftButtonDown="Minimize_MouseLeftButtonDown"
+                                     materialDesign:Style="{StaticResource MenuIcon}"/>
+
+            <materialDesign:PackIcon x:Name="Close"
+                                     Kind="Close"
+                                     Margin="960,10,0,0"
+                                     MouseLeftButtonDown="Close_MouseLeftButtonDown"
+                                     materialDesign:Style="{StaticResource MenuIcon}"/>
+
+            <Button x:Name="ListAdm"
+                    Style="{StaticResource MenuButton}"
+                    Margin="10,158,865,387"
+                    Click="ListAdm_Click">
+                <Grid>
+                    <StackPanel Orientation="Horizontal" 
+                                Margin="-46,-22,-50,-22">
+                        <Image Height="23" 
+                               Source="/ResourceFolder/ImageFolder/ListAdmIcon.png" 
+                               />
+                        <TextBlock Text="Спиcок пользователей"
+                               TextWrapping="Wrap" 
+                               Width="85"
+                               FontFamily="Arial"
+                               FontSize="12" 
+                                   Height="26"
+                                   Margin="1 10 10 10"
+                               />
+                    </StackPanel>
+                </Grid>
+            </Button>
+
+            <Button x:Name="ChangeUser"
+        Style="{StaticResource MenuButton}"
+        Margin="10,535,865,10"
+        Click="ChangeUser_Click">
+                <Grid>
+                    <StackPanel Orientation="Horizontal"
+                                Height="48"
+                                Width="119" Margin="-6,-14,-24,-15">
+                        <Image Height="20"
+                               Source="/ResourceFolder/ImageFolder/Logout.png"/>
+                        <TextBlock Text="Сменить пользователя"
+                   TextWrapping="Wrap" 
+                   Width="85"
+                   FontFamily="Arial"
+                   FontSize="12" 
+                       Height="26"
+                       Margin="3 10 10 10"/>
+                    </StackPanel>
+                </Grid>
+            </Button>
+
+            <Image Source="/ResourceFolder/ImageFolder/AdmImage.png"
+                   Width="400"
+                   Height="37"
+                   Margin="375,25,225,538"/>
+
+            <Label Style="{DynamicResource LabelNormalStyle}"
+               Content="{Binding ElementName=MainFrame,
+            Path=Content.Title}" 
+       Margin="160,91,10,10"
+                   BorderBrush="Black"
+                   BorderThickness="3"/>
+
+            <Frame Name="MaiFrame" 
+       Margin="163,91,13,10"
+               NavigationUIVisibility="Hidden"/>
+        </Grid>
+    </Border>
+
+    <Window.Resources>
+        <Storyboard x:Key="MinimizeStoryboard">
+            <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                     To="0"
+                     Duration="0:0:0.35" />
+        </Storyboard>
+    </Window.Resources>
+</Window>
+

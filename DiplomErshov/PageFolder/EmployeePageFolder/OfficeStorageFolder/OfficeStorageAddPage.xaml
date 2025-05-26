@@ -1,0 +1,235 @@
+﻿<Page x:Class="DiplomErshov.PageFolder.EmployeePageFolder.OfficeStorageFolder.OfficeStorageAddPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DiplomErshov.PageFolder.EmployeePageFolder.OfficeStorageFolder"
+            xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="649"
+      MaxHeight="649"
+      MinHeight="649"
+      d:DesignWidth="824"
+      MaxWidth="824"
+      MinWidth="824"
+      Title="OfficeStorageAddPage">
+
+    <Border>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Добавление рабочего места"
+Style="{StaticResource LabelLogoStyle}"
+Grid.ColumnSpan="2"
+Grid.Column="0"
+Grid.Row="0"/>
+
+            <ComboBox x:Name="ComputerCb"
+           Foreground="White"
+           BorderBrush="Black"
+           Background="Transparent"
+           BorderThickness="0 0 0 2"
+           Grid.Row="1"
+           FontSize="18"
+                      materialDesign:HintAssist.Hint="Выберете компьютер"
+                   SelectedItem="{Binding Computer}"
+           DisplayMemberPath="SerialNumberComputer"
+           SelectedValuePath="IdComputer"
+           FontFamily="Arial"
+           Height="50" 
+               Margin="22,0,22,0"/>
+
+            <ComboBox x:Name="StaffCb"
+           Foreground="White"
+           BorderBrush="Black"
+           Background="Transparent"
+           BorderThickness="0 0 0 2"
+           Grid.Row="1"
+           Grid.Column="1"
+           FontSize="18"
+                      materialDesign:HintAssist.Hint="Выберете сотрудника"
+                   SelectedItem="{Binding Staff}"
+                   DisplayMemberPath="LastNameStaff"
+                   SelectedValuePath="IdStaff"
+           FontFamily="Arial"
+           Height="50"
+           Margin="22,0,22,0"/>
+
+            <ComboBox x:Name="KeyboardCb"
+           Foreground="White"
+           BorderBrush="Black"
+           Background="Transparent"
+           BorderThickness="0 0 0 2"
+           Grid.Row="2"
+           FontSize="18"
+                      materialDesign:HintAssist.Hint="Выберете клавиатуру"
+                   SelectedItem="{Binding Keyboard}"
+                   DisplayMemberPath="NameKeyboard"
+                   SelectedValuePath="IdKeyboard"
+           FontFamily="Arial"
+           Height="50"
+           Margin="22,0,22,0"/>
+
+            <ComboBox x:Name="ComputerMouseCb"
+           Foreground="White"
+           BorderBrush="Black"
+           Background="Transparent"
+           BorderThickness="0 0 0 2"
+           Grid.Row="2"
+           Grid.Column="1"
+           FontSize="18"
+                      materialDesign:HintAssist.Hint="Выберете компьютерную мышь"
+                   SelectedItem="{Binding ComputerMouse}"
+                   DisplayMemberPath="NameComputerMouse"
+                   SelectedValuePath="IdComputerMouse"
+           FontFamily="Arial"
+           Height="50"
+           Margin="22,0,22,0"/>
+
+            <ComboBox x:Name="ScannerCb"
+           Foreground="White"
+           BorderBrush="Black"
+           Background="Transparent"
+           BorderThickness="0 0 0 2"
+           Grid.Row="3"
+           FontSize="18"
+                      materialDesign:HintAssist.Hint="Выберете сканер*"
+                   SelectedItem="{Binding Scanner}"
+                   DisplayMemberPath="NameScanner"
+                   SelectedValuePath="IdScanner"
+           FontFamily="Arial"
+           Height="50" 
+           Margin="22,0,22,0"/>
+
+            <ComboBox x:Name="MicrophoneCb"
+           Foreground="White"
+           BorderBrush="Black"
+           Background="Transparent"
+           BorderThickness="0 0 0 2"
+           Grid.Row="3"
+           Grid.Column="1"
+           FontSize="18"
+                      materialDesign:HintAssist.Hint="Выберете микрофон*"
+                   SelectedItem="{Binding Microphone}"
+                   DisplayMemberPath="NameMicrophone"
+                   SelectedValuePath="IdMicrophone"
+           FontFamily="Arial"
+           Height="50"
+           Margin="22,0,22,0"/>
+
+            <ComboBox x:Name="WebCameraCb"
+           Foreground="White"
+           BorderBrush="Black"
+           Background="Transparent"
+           BorderThickness="0 0 0 2"
+           Grid.Row="4"
+           FontSize="18"
+                      materialDesign:HintAssist.Hint="Выберете вебкамеру*"
+                   SelectedItem="{Binding WebCamera}"
+                   DisplayMemberPath="NameWebCamera"
+                   SelectedValuePath="IdWebCamera"
+           FontFamily="Arial"
+           Height="50"
+           Margin="22,0,22,0"/>
+
+            <ComboBox x:Name="MonitorCb"
+           Foreground="White"
+           BorderBrush="Black"     
+           Background="Transparent"
+           BorderThickness="0 0 0 2"
+           Grid.Row="4"
+           Grid.Column="1"
+           FontSize="18"
+                      materialDesign:HintAssist.Hint="Выберете монитор"
+                   SelectedItem="{Binding Monitor}"
+                   DisplayMemberPath="NameMonitor"
+                   SelectedValuePath="IdMonitor"
+           FontFamily="Arial"
+           Height="50"
+           Margin="22,0,22,0"/>
+
+            <ComboBox x:Name="PrinterCb"
+           Foreground="White"
+           BorderBrush="Black"
+           Background="Transparent"
+           BorderThickness="0 0 0 2"
+           Grid.Row="5"
+           FontSize="18"
+                      materialDesign:HintAssist.Hint="Выберете принтер*"
+                   SelectedItem="{Binding Printer}"
+                   DisplayMemberPath="NamePrinter"
+                   SelectedValuePath="IdPrinter"
+           FontFamily="Arial"
+           Height="50"
+           Margin="22,0,22,0"/>
+
+            <ComboBox x:Name="HeadphonesCb"
+           Foreground="White"
+           BorderBrush="Black"
+           Background="Transparent"
+           BorderThickness="0 0 0 2"
+           Grid.Row="5"
+           Grid.Column="1"
+           FontSize="18"
+                      materialDesign:HintAssist.Hint="Выберете наушники*"
+                   SelectedItem="{Binding Headphones}"
+                   DisplayMemberPath="NameHeadphones"
+                   SelectedValuePath="IdHeadphones"
+           FontFamily="Arial"
+           Height="50"
+           Margin="22,0,22,0"/>
+
+            <ComboBox x:Name="GarnitureCb"
+           Foreground="White"
+           BorderBrush="Black"
+           Background="Transparent"
+           BorderThickness="0 0 0 2"
+           Grid.Row="6"
+                   Grid.ColumnSpan="2"
+           FontSize="18"
+                      materialDesign:HintAssist.Hint="Выберете гарнитуру*"
+                   SelectedItem="{Binding Garniture}"
+                   DisplayMemberPath="NameGarniture"
+                   SelectedValuePath="IdGarniture"
+           FontFamily="Arial"
+           Height="50" 
+           Margin="200,0,200,0"/>
+
+            <Button x:Name="SaveBtn"
+         Style="{StaticResource AuthButton}"
+         Content="Добавить рабочее место"
+         HorizontalContentAlignment="Center"
+         VerticalContentAlignment="Center"
+         Click="SaveBtn_Click" 
+         Grid.ColumnSpan="2"
+         Grid.Row="8"
+         Margin="228 10 228 10"/>
+
+            <materialDesign:PackIcon x:Name="Back"
+                                     Kind="ArrowBack"
+                                     Style="{StaticResource MenuIcon}"
+                                     Margin="5 10 10 10"
+                                     MouseLeftButtonDown="Back_MouseLeftButtonDown"
+                                     Height="50"
+                                     Width="50"
+                                     VerticalAlignment="Center"/>
+
+        </Grid>
+    </Border>
+</Page>

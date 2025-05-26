@@ -1,0 +1,223 @@
+﻿<Page x:Class="DiplomErshov.PageFolder.EmployeePageFolder.OfficeStorageFolder.OfficeStorageListPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DiplomErshov.PageFolder.EmployeePageFolder.OfficeStorageFolder"
+            xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="649"
+      MaxHeight="649"
+      MinHeight="649"
+      d:DesignWidth="824"
+      MaxWidth="824"
+      MinWidth="824"
+      Title="OfficeStorageListPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <materialDesign:PackIcon x:Name="Plus"
+                         Kind="Plus"
+                         Style="{StaticResource MenuPlusIcon}" 
+                         Grid.Column="1" 
+                         Margin="567,0,0,0" 
+                         VerticalAlignment="Center"
+                         MouseLeftButtonDown="Plus_MouseLeftButtonDown"/>
+
+        <Image Source="/ResourceFolder/ImageFolder/SearchIcon.png"
+          Height="20" 
+          Margin="121,22,7,22"/>
+
+        <TextBox x:Name="SearchTb"
+Style="{DynamicResource Search}"
+TextChanged="SearchTb_TextChanged"
+Grid.ColumnSpan="2"
+        Margin="0, 0, 0, 0"
+Width="600"
+Height="30"
+Padding="4,0"
+FontSize="18">
+            <TextBox.Template>
+                <ControlTemplate TargetType="TextBox">
+                    <Grid>
+                        <Border CornerRadius="5"
+           Background="Transparent"
+           BorderBrush="White"
+           BorderThickness="2">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label x:Name="SearchNx"
+              Content="Поиск"
+              Style="{DynamicResource NormalLabelStyle}"
+              Visibility="Collapsed"
+              Margin="0, 0, 0, 0"
+              FontSize="15"
+              Foreground="LightGray"
+                          Grid.Column="2"/>
+
+                                <ScrollViewer x:Name="PART_ContentHost"
+                     Focusable="False"
+                     HorizontalScrollBarVisibility="Hidden"
+                     VerticalScrollBarVisibility="Hidden" Grid.Column="2"/>
+
+                            </Grid>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Text" Value="">
+                            <Setter TargetName="SearchNx" 
+                       Property="Visibility" 
+                       Value="Visible"/>
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.56"/>
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </TextBox.Template>
+        </TextBox>
+
+        <DataGrid x:Name="ListStorageDG" 
+      IsReadOnly="True"
+          FontFamily="Arial"
+          FontSize="18 "
+     AutoGenerateColumns="False"
+      Background="Transparent"
+      Grid.ColumnSpan="2"
+     Grid.Row="1" 
+      Foreground="White"
+      BorderBrush="White"
+      CanUserAddRows="False">
+            <DataGrid.ContextMenu>
+
+                <ContextMenu Name="AdtCM">
+
+                    <MenuItem x:Name="Red"
+                          Header="Редактирование"
+                          Click="Red_Click"/>
+
+                    <Separator/>
+                    <MenuItem x:Name="Del"
+                          Header="Удалить"
+                          Click="Del_Click"/>
+
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="№ п/п" 
+                                Binding="{Binding IdOfficeStorage}"
+                                Width="100"
+                                Foreground="White"/>
+
+                <DataGridTextColumn Header="Компьютер"
+                                Binding="{Binding Computer.SerialNumberComputer}"
+                                Width="auto"
+                                Foreground="White"/>
+
+                <DataGridTextColumn Header="Сотрудник" 
+                                Binding="{Binding Staff.LastNameStaff}"
+                                Width="auto"
+                                Foreground="White"/>
+
+                <DataGridTextColumn Header="Клавиатура" 
+                                Binding="{Binding Keyboard.NameKeyboard}"
+                                Width="auto"
+                                Foreground="White"/>
+
+                <DataGridTextColumn Header="Компьютерная мышь"
+                                Binding="{Binding ComputerMouse.NameComputerMouse}"
+                                Width="auto"
+                                Foreground="White"/>
+
+                <DataGridTextColumn Header="Сканер*" 
+                                Binding="{Binding Scanner.NameScanner, FallbackValue= -}"
+                                Width="auto"
+                                Foreground="White"/>
+
+                <DataGridTextColumn Header="Микрофон*" 
+                                Binding="{Binding Microphone.NameMicrophone, FallbackValue= -}"
+                                Width="auto"
+                                Foreground="White"/>
+
+                <DataGridTextColumn Header="Вебкамера*" 
+                                Binding="{Binding WebCamera.NameWebCamera, FallbackValue= -}"
+                                Width="auto"
+                                Foreground="White"/>
+
+                <DataGridTextColumn Header="Монитор" 
+                                Binding="{Binding Monitor.NameMonitor}"
+                                Width="auto"
+                                Foreground="White"/>
+
+                <DataGridTextColumn Header="Принтер*" 
+                                Binding="{Binding Printer.NamePrinter, FallbackValue= -}"
+                                Width="auto"
+                                Foreground="White"/>
+
+                <DataGridTextColumn Header="Наушники*"
+                                Binding="{Binding Headphones.NameHeadphones, FallbackValue= -}"
+                                Width="auto"
+                                Foreground="White"/>
+
+                <DataGridTextColumn Header="Гарнитура*"
+                                Binding="{Binding Garniture.NameGarniture, FallbackValue= -}"
+                                Width="auto"
+                                Foreground="White"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <materialDesign:PopupBox
+        Background="White"
+        Foreground="White" 
+        Margin="73,0,0,0"
+        StaysOpen="False"
+        >
+            <StackPanel Width="auto">
+                <Button x:Name="ListComputerMouseBtn"
+                    Content="Список комп. мышей"
+                    Click="ListComputerMouseBtn_Click"/>
+                <Button x:Name="ListGarnitureCoolingBtn"
+                    Content="Список гарнитур"
+                    Click="ListGarnitureCoolingBtn_Click"/>
+                <Button x:Name="ListHeadphonesBtn"
+                    Content="Список наушников"
+                    Click="ListHeadphonesBtn_Click"/>
+                <Button x:Name="ListKeyboardBtn"
+                    Content="Список клавиатур"
+                    Click="ListKeyboardBtn_Click"/>
+                <Button x:Name="ListMicrophoneBtn"
+                    Content="Список микрофонов"
+                    Click="ListMicrophoneBtn_Click"/>
+                <Button x:Name="ListMonitorBtn"
+                    Content="Список мониторов"
+                    Click="ListMonitorBtn_Click"/>
+                <Button x:Name="ListPrinterBtn"
+                    Content="Список принтеров"
+                    Click="ListPrinterBtn_Click"/>
+                <Button x:Name="ListScannerBtn"
+                    Content="Список сканеров"
+                    Click="ListScannerBtn_Click"/>
+                <Button x:Name="ListWebCameraBtn"
+                    Content="Список вебкамер"
+                    Click="ListWebCameraBtn_Click"/>
+            </StackPanel>
+        </materialDesign:PopupBox>
+    </Grid>
+</Page>
