@@ -1,0 +1,2228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище DBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Computer">
+          <Key>
+            <PropertyRef Name="IdComputer" />
+          </Key>
+          <Property Name="IdComputer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCPU" Type="int" Nullable="false" />
+          <Property Name="IdMotherBoard" Type="int" Nullable="false" />
+          <Property Name="IdRAM1" Type="int" Nullable="false" />
+          <Property Name="IdRAM2" Type="int" />
+          <Property Name="IdRAM3" Type="int" />
+          <Property Name="IdRAM4" Type="int" />
+          <Property Name="IdGPU" Type="int" Nullable="false" />
+          <Property Name="IdHDD" Type="int" Nullable="false" />
+          <Property Name="IdCPUСooling" Type="int" Nullable="false" />
+          <Property Name="IdSSD" Type="int" />
+          <Property Name="IdComputerCase" Type="int" Nullable="false" />
+          <Property Name="IdPowerSupply" Type="int" Nullable="false" />
+          <Property Name="GuaranteeComputer" Type="datetime" Nullable="false" />
+          <Property Name="SerialNumberComputer" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ComputerCase">
+          <Key>
+            <PropertyRef Name="IdComputerCase" />
+          </Key>
+          <Property Name="IdComputerCase" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameComputerCase" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="SerialNumberComputerCase" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ComputerMouse">
+          <Key>
+            <PropertyRef Name="IdComputerMouse" />
+          </Key>
+          <Property Name="IdComputerMouse" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameComputerMouse" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="SerialNumberComputerMouse" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="GuaranteeComputerMouse" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CPU">
+          <Key>
+            <PropertyRef Name="IdCPU" />
+          </Key>
+          <Property Name="IdCPU" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameCPU" Type="nvarchar" MaxLength="75" Nullable="false" />
+          <Property Name="SocketCPU" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="SerialNumberCPU" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CPUСooling">
+          <Key>
+            <PropertyRef Name="IdCPUСooling" />
+          </Key>
+          <Property Name="IdCPUСooling" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameCPUСooling" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="IdTypeOfCPUСooling" Type="int" Nullable="false" />
+          <Property Name="SerialNumberCPUCooling" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DigitalStorageCapacityHDD">
+          <Key>
+            <PropertyRef Name="IdDigitalStorageCapacityHDD" />
+          </Key>
+          <Property Name="IdDigitalStorageCapacityHDD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameDigitalStorageCapacityHDD" Type="nvarchar" MaxLength="80" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DigitalStorageCapacitySSD">
+          <Key>
+            <PropertyRef Name="IdDigitalStorageCapacitySSD" />
+          </Key>
+          <Property Name="IdDigitalStorageCapacitySSD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameDigitalStorageCapacitySSD" Type="nvarchar" MaxLength="70" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Garniture">
+          <Key>
+            <PropertyRef Name="IdGarniture" />
+          </Key>
+          <Property Name="IdGarniture" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameGarniture" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SerialNumberGarniture" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="GaranteeGarniture" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GPU">
+          <Key>
+            <PropertyRef Name="IdGPU" />
+          </Key>
+          <Property Name="IdGPU" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameGPU" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="SerialNumberGPU" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HDD">
+          <Key>
+            <PropertyRef Name="IdHDD" />
+          </Key>
+          <Property Name="IdHDD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameHDD" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="IdDigitalStorageCapacityHDD" Type="int" Nullable="false" />
+          <Property Name="QuantityHDD" Type="int" Nullable="false" />
+          <Property Name="SerialNumberHDD" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Headphones">
+          <Key>
+            <PropertyRef Name="IdHeadphones" />
+          </Key>
+          <Property Name="IdHeadphones" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameHeadphones" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SerialNumberHeadphones" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="GuaranteeHeadphones" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Keyboard">
+          <Key>
+            <PropertyRef Name="IdKeyboard" />
+          </Key>
+          <Property Name="IdKeyboard" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameKeyboard" Type="nvarchar" MaxLength="85" Nullable="false" />
+          <Property Name="SerialNumberKeyboard" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="GuaranteeKeyboard" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Microphone">
+          <Key>
+            <PropertyRef Name="IdMicrophone" />
+          </Key>
+          <Property Name="IdMicrophone" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameMicrophone" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="SerialNumberMicrophone" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="GuaranteeMicrophone" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Monitor">
+          <Key>
+            <PropertyRef Name="IdMonitor" />
+          </Key>
+          <Property Name="IdMonitor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameMonitor" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SerialNumberMonitor" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="GuaranteeMonitor" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MotherBoard">
+          <Key>
+            <PropertyRef Name="IdMotherBoard" />
+          </Key>
+          <Property Name="IdMotherBoard" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameMotherBoard" Type="nvarchar" MaxLength="75" Nullable="false" />
+          <Property Name="SocketMotherBoard" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="SerialNumberMotherBoard" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OfficeStorage">
+          <Key>
+            <PropertyRef Name="IdOfficeStorage" />
+          </Key>
+          <Property Name="IdOfficeStorage" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdComputer" Type="int" Nullable="false" />
+          <Property Name="IdStaff" Type="int" Nullable="false" />
+          <Property Name="IdKeyboard" Type="int" Nullable="false" />
+          <Property Name="IdComputerMouse" Type="int" Nullable="false" />
+          <Property Name="IdScanner" Type="int" />
+          <Property Name="IdMicrophone" Type="int" />
+          <Property Name="IdWebCamera" Type="int" />
+          <Property Name="IdMonitor" Type="int" Nullable="false" />
+          <Property Name="IdPrinter" Type="int" />
+          <Property Name="IdHeadphones" Type="int" />
+          <Property Name="IdGarniture" Type="int" />
+        </EntityType>
+        <EntityType Name="PowerSupply">
+          <Key>
+            <PropertyRef Name="IdPowerSupply" />
+          </Key>
+          <Property Name="IdPowerSupply" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NamePowerSupply" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="IdWattage" Type="int" Nullable="false" />
+          <Property Name="SerialNumberPowerSupply" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Printer">
+          <Key>
+            <PropertyRef Name="IdPrinter" />
+          </Key>
+          <Property Name="IdPrinter" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NamePrinter" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="SerialNumberPrinter" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="GuaranteePrinter" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RAM">
+          <Key>
+            <PropertyRef Name="IdRAM" />
+          </Key>
+          <Property Name="IdRAM" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameRAM" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdTypeOfRAM" Type="int" Nullable="false" />
+          <Property Name="SerialNumberRAM" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RAM1">
+          <Key>
+            <PropertyRef Name="IdRAM1" />
+          </Key>
+          <Property Name="IdRAM1" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdRAM" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RAM2">
+          <Key>
+            <PropertyRef Name="IdRAM2" />
+          </Key>
+          <Property Name="IdRAM2" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdRAM" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RAM3">
+          <Key>
+            <PropertyRef Name="IdRAM3" />
+          </Key>
+          <Property Name="IdRAM3" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdRAM" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RAM4">
+          <Key>
+            <PropertyRef Name="IdRAM4" />
+          </Key>
+          <Property Name="IdRAM4" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdRAM" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="IdRole" />
+          </Key>
+          <Property Name="IdRole" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameRole" Type="nvarchar" MaxLength="55" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Scanner">
+          <Key>
+            <PropertyRef Name="IdScanner" />
+          </Key>
+          <Property Name="IdScanner" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameScanner" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SerialNumberScanner" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="GuaranteeScanner" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SerialNumberRAM">
+          <Key>
+            <PropertyRef Name="IdSerialNumberRAM" />
+          </Key>
+          <Property Name="IdSerialNumberRAM" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameSerialNumberRAM" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="IdRAM" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SSD">
+          <Key>
+            <PropertyRef Name="IdSSD" />
+          </Key>
+          <Property Name="IdSSD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameSSD" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="IdDigitalStorageCapacitySSD" Type="int" Nullable="false" />
+          <Property Name="QuantitySSD" Type="int" Nullable="false" />
+          <Property Name="SerialNumberSSD" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="IdStaff" />
+          </Key>
+          <Property Name="IdStaff" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LastNameStaff" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="FirstNameStaff" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="MiddleNameStaff" Type="nvarchar" MaxLength="90" />
+          <Property Name="PhoneNumberStaff" Type="nvarchar" MaxLength="19" Nullable="false" />
+          <Property Name="EmailStaff" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="IdUser" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TypeOfCPUСooling">
+          <Key>
+            <PropertyRef Name="IdTypeOfCPUСooling" />
+          </Key>
+          <Property Name="IdTypeOfCPUСooling" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameTypeOfCPUСooling" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypeOfRAM">
+          <Key>
+            <PropertyRef Name="IdTypeOfRAM" />
+          </Key>
+          <Property Name="IdTypeOfRAM" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameTypeOfRAM" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="IdUser" />
+          </Key>
+          <Property Name="IdUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoginUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PasswordUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdRole" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Wattage">
+          <Key>
+            <PropertyRef Name="IdWattage" />
+          </Key>
+          <Property Name="IdWattage" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameWattage" Type="nvarchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WebCamera">
+          <Key>
+            <PropertyRef Name="IdWebCamera" />
+          </Key>
+          <Property Name="IdWebCamera" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameWebCamera" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SerialNumberWebCamera" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="GuaranteeWebCamera" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Computer_ComputerCase">
+          <End Role="ComputerCase" Type="Self.ComputerCase" Multiplicity="1" />
+          <End Role="Computer" Type="Self.Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ComputerCase">
+              <PropertyRef Name="IdComputerCase" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="IdComputerCase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_CPU">
+          <End Role="CPU" Type="Self.CPU" Multiplicity="1" />
+          <End Role="Computer" Type="Self.Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CPU">
+              <PropertyRef Name="IdCPU" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="IdCPU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_CPUСooling">
+          <End Role="CPUСooling" Type="Self.CPUСooling" Multiplicity="1" />
+          <End Role="Computer" Type="Self.Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CPUСooling">
+              <PropertyRef Name="IdCPUСooling" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="IdCPUСooling" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_GPU">
+          <End Role="GPU" Type="Self.GPU" Multiplicity="1" />
+          <End Role="Computer" Type="Self.Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GPU">
+              <PropertyRef Name="IdGPU" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="IdGPU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_HDD">
+          <End Role="HDD" Type="Self.HDD" Multiplicity="1" />
+          <End Role="Computer" Type="Self.Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HDD">
+              <PropertyRef Name="IdHDD" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="IdHDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_MotherBoard">
+          <End Role="MotherBoard" Type="Self.MotherBoard" Multiplicity="1" />
+          <End Role="Computer" Type="Self.Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MotherBoard">
+              <PropertyRef Name="IdMotherBoard" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="IdMotherBoard" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_PowerSupply">
+          <End Role="PowerSupply" Type="Self.PowerSupply" Multiplicity="1" />
+          <End Role="Computer" Type="Self.Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PowerSupply">
+              <PropertyRef Name="IdPowerSupply" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="IdPowerSupply" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_RAM1">
+          <End Role="RAM1" Type="Self.RAM1" Multiplicity="1" />
+          <End Role="Computer" Type="Self.Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RAM1">
+              <PropertyRef Name="IdRAM1" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="IdRAM1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_RAM2">
+          <End Role="RAM2" Type="Self.RAM2" Multiplicity="0..1" />
+          <End Role="Computer" Type="Self.Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RAM2">
+              <PropertyRef Name="IdRAM2" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="IdRAM2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_RAM3">
+          <End Role="RAM3" Type="Self.RAM3" Multiplicity="0..1" />
+          <End Role="Computer" Type="Self.Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RAM3">
+              <PropertyRef Name="IdRAM3" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="IdRAM3" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_RAM4">
+          <End Role="RAM4" Type="Self.RAM4" Multiplicity="0..1" />
+          <End Role="Computer" Type="Self.Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RAM4">
+              <PropertyRef Name="IdRAM4" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="IdRAM4" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_SSD">
+          <End Role="SSD" Type="Self.SSD" Multiplicity="0..1" />
+          <End Role="Computer" Type="Self.Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SSD">
+              <PropertyRef Name="IdSSD" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="IdSSD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CPUСooling_TypeOfCPUСooling">
+          <End Role="TypeOfCPUСooling" Type="Self.TypeOfCPUСooling" Multiplicity="1" />
+          <End Role="CPUСooling" Type="Self.CPUСooling" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeOfCPUСooling">
+              <PropertyRef Name="IdTypeOfCPUСooling" />
+            </Principal>
+            <Dependent Role="CPUСooling">
+              <PropertyRef Name="IdTypeOfCPUСooling" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HDD_DigitalStorageCapacityHDD">
+          <End Role="DigitalStorageCapacityHDD" Type="Self.DigitalStorageCapacityHDD" Multiplicity="1" />
+          <End Role="HDD" Type="Self.HDD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DigitalStorageCapacityHDD">
+              <PropertyRef Name="IdDigitalStorageCapacityHDD" />
+            </Principal>
+            <Dependent Role="HDD">
+              <PropertyRef Name="IdDigitalStorageCapacityHDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OfficeStorage_Computer">
+          <End Role="Computer" Type="Self.Computer" Multiplicity="1" />
+          <End Role="OfficeStorage" Type="Self.OfficeStorage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Computer">
+              <PropertyRef Name="IdComputer" />
+            </Principal>
+            <Dependent Role="OfficeStorage">
+              <PropertyRef Name="IdComputer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OfficeStorage_ComputerMouse">
+          <End Role="ComputerMouse" Type="Self.ComputerMouse" Multiplicity="1" />
+          <End Role="OfficeStorage" Type="Self.OfficeStorage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ComputerMouse">
+              <PropertyRef Name="IdComputerMouse" />
+            </Principal>
+            <Dependent Role="OfficeStorage">
+              <PropertyRef Name="IdComputerMouse" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OfficeStorage_Garniture">
+          <End Role="Garniture" Type="Self.Garniture" Multiplicity="0..1" />
+          <End Role="OfficeStorage" Type="Self.OfficeStorage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Garniture">
+              <PropertyRef Name="IdGarniture" />
+            </Principal>
+            <Dependent Role="OfficeStorage">
+              <PropertyRef Name="IdGarniture" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OfficeStorage_Headphones">
+          <End Role="Headphones" Type="Self.Headphones" Multiplicity="0..1" />
+          <End Role="OfficeStorage" Type="Self.OfficeStorage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Headphones">
+              <PropertyRef Name="IdHeadphones" />
+            </Principal>
+            <Dependent Role="OfficeStorage">
+              <PropertyRef Name="IdHeadphones" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OfficeStorage_Keyboard">
+          <End Role="Keyboard" Type="Self.Keyboard" Multiplicity="1" />
+          <End Role="OfficeStorage" Type="Self.OfficeStorage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Keyboard">
+              <PropertyRef Name="IdKeyboard" />
+            </Principal>
+            <Dependent Role="OfficeStorage">
+              <PropertyRef Name="IdKeyboard" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OfficeStorage_Microphone">
+          <End Role="Microphone" Type="Self.Microphone" Multiplicity="0..1" />
+          <End Role="OfficeStorage" Type="Self.OfficeStorage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Microphone">
+              <PropertyRef Name="IdMicrophone" />
+            </Principal>
+            <Dependent Role="OfficeStorage">
+              <PropertyRef Name="IdMicrophone" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OfficeStorage_Monitor">
+          <End Role="Monitor" Type="Self.Monitor" Multiplicity="1" />
+          <End Role="OfficeStorage" Type="Self.OfficeStorage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Monitor">
+              <PropertyRef Name="IdMonitor" />
+            </Principal>
+            <Dependent Role="OfficeStorage">
+              <PropertyRef Name="IdMonitor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OfficeStorage_Printer">
+          <End Role="Printer" Type="Self.Printer" Multiplicity="0..1" />
+          <End Role="OfficeStorage" Type="Self.OfficeStorage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Printer">
+              <PropertyRef Name="IdPrinter" />
+            </Principal>
+            <Dependent Role="OfficeStorage">
+              <PropertyRef Name="IdPrinter" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OfficeStorage_Scanner">
+          <End Role="Scanner" Type="Self.Scanner" Multiplicity="0..1" />
+          <End Role="OfficeStorage" Type="Self.OfficeStorage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Scanner">
+              <PropertyRef Name="IdScanner" />
+            </Principal>
+            <Dependent Role="OfficeStorage">
+              <PropertyRef Name="IdScanner" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OfficeStorage_Staff">
+          <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+          <End Role="OfficeStorage" Type="Self.OfficeStorage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="IdStaff" />
+            </Principal>
+            <Dependent Role="OfficeStorage">
+              <PropertyRef Name="IdStaff" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OfficeStorage_WebCamera">
+          <End Role="WebCamera" Type="Self.WebCamera" Multiplicity="0..1" />
+          <End Role="OfficeStorage" Type="Self.OfficeStorage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WebCamera">
+              <PropertyRef Name="IdWebCamera" />
+            </Principal>
+            <Dependent Role="OfficeStorage">
+              <PropertyRef Name="IdWebCamera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PowerSupply_Wattage">
+          <End Role="Wattage" Type="Self.Wattage" Multiplicity="1" />
+          <End Role="PowerSupply" Type="Self.PowerSupply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wattage">
+              <PropertyRef Name="IdWattage" />
+            </Principal>
+            <Dependent Role="PowerSupply">
+              <PropertyRef Name="IdWattage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RAM_TypeOfRAM">
+          <End Role="TypeOfRAM" Type="Self.TypeOfRAM" Multiplicity="1" />
+          <End Role="RAM" Type="Self.RAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeOfRAM">
+              <PropertyRef Name="IdTypeOfRAM" />
+            </Principal>
+            <Dependent Role="RAM">
+              <PropertyRef Name="IdTypeOfRAM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RAM1_RAM">
+          <End Role="RAM" Type="Self.RAM" Multiplicity="1" />
+          <End Role="RAM1" Type="Self.RAM1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RAM">
+              <PropertyRef Name="IdRAM" />
+            </Principal>
+            <Dependent Role="RAM1">
+              <PropertyRef Name="IdRAM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RAM2_RAM">
+          <End Role="RAM" Type="Self.RAM" Multiplicity="1" />
+          <End Role="RAM2" Type="Self.RAM2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RAM">
+              <PropertyRef Name="IdRAM" />
+            </Principal>
+            <Dependent Role="RAM2">
+              <PropertyRef Name="IdRAM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RAM3_RAM">
+          <End Role="RAM" Type="Self.RAM" Multiplicity="1" />
+          <End Role="RAM3" Type="Self.RAM3" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RAM">
+              <PropertyRef Name="IdRAM" />
+            </Principal>
+            <Dependent Role="RAM3">
+              <PropertyRef Name="IdRAM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RAM4_RAM">
+          <End Role="RAM" Type="Self.RAM" Multiplicity="1" />
+          <End Role="RAM4" Type="Self.RAM4" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RAM">
+              <PropertyRef Name="IdRAM" />
+            </Principal>
+            <Dependent Role="RAM4">
+              <PropertyRef Name="IdRAM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SSD_DigitalStorageCapacitySSD">
+          <End Role="DigitalStorageCapacitySSD" Type="Self.DigitalStorageCapacitySSD" Multiplicity="1" />
+          <End Role="SSD" Type="Self.SSD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DigitalStorageCapacitySSD">
+              <PropertyRef Name="IdDigitalStorageCapacitySSD" />
+            </Principal>
+            <Dependent Role="SSD">
+              <PropertyRef Name="IdDigitalStorageCapacitySSD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="IdRole" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="IdRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище DBModelContainer">
+          <EntitySet Name="Computer" EntityType="Self.Computer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ComputerCase" EntityType="Self.ComputerCase" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ComputerMouse" EntityType="Self.ComputerMouse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CPU" EntityType="Self.CPU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CPUСooling" EntityType="Self.CPUСooling" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DigitalStorageCapacityHDD" EntityType="Self.DigitalStorageCapacityHDD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DigitalStorageCapacitySSD" EntityType="Self.DigitalStorageCapacitySSD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Garniture" EntityType="Self.Garniture" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GPU" EntityType="Self.GPU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HDD" EntityType="Self.HDD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Headphones" EntityType="Self.Headphones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Keyboard" EntityType="Self.Keyboard" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Microphone" EntityType="Self.Microphone" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Monitor" EntityType="Self.Monitor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MotherBoard" EntityType="Self.MotherBoard" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OfficeStorage" EntityType="Self.OfficeStorage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PowerSupply" EntityType="Self.PowerSupply" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Printer" EntityType="Self.Printer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RAM" EntityType="Self.RAM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RAM1" EntityType="Self.RAM1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RAM2" EntityType="Self.RAM2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RAM3" EntityType="Self.RAM3" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RAM4" EntityType="Self.RAM4" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Scanner" EntityType="Self.Scanner" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SerialNumberRAM" EntityType="Self.SerialNumberRAM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SSD" EntityType="Self.SSD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeOfCPUСooling" EntityType="Self.TypeOfCPUСooling" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeOfRAM" EntityType="Self.TypeOfRAM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wattage" EntityType="Self.Wattage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WebCamera" EntityType="Self.WebCamera" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Computer_ComputerCase" Association="Self.FK_Computer_ComputerCase">
+            <End Role="ComputerCase" EntitySet="ComputerCase" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_CPU" Association="Self.FK_Computer_CPU">
+            <End Role="CPU" EntitySet="CPU" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_CPUСooling" Association="Self.FK_Computer_CPUСooling">
+            <End Role="CPUСooling" EntitySet="CPUСooling" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_GPU" Association="Self.FK_Computer_GPU">
+            <End Role="GPU" EntitySet="GPU" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_HDD" Association="Self.FK_Computer_HDD">
+            <End Role="HDD" EntitySet="HDD" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_MotherBoard" Association="Self.FK_Computer_MotherBoard">
+            <End Role="MotherBoard" EntitySet="MotherBoard" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_PowerSupply" Association="Self.FK_Computer_PowerSupply">
+            <End Role="PowerSupply" EntitySet="PowerSupply" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_RAM1" Association="Self.FK_Computer_RAM1">
+            <End Role="RAM1" EntitySet="RAM1" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_RAM2" Association="Self.FK_Computer_RAM2">
+            <End Role="RAM2" EntitySet="RAM2" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_RAM3" Association="Self.FK_Computer_RAM3">
+            <End Role="RAM3" EntitySet="RAM3" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_RAM4" Association="Self.FK_Computer_RAM4">
+            <End Role="RAM4" EntitySet="RAM4" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_SSD" Association="Self.FK_Computer_SSD">
+            <End Role="SSD" EntitySet="SSD" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CPUСooling_TypeOfCPUСooling" Association="Self.FK_CPUСooling_TypeOfCPUСooling">
+            <End Role="TypeOfCPUСooling" EntitySet="TypeOfCPUСooling" />
+            <End Role="CPUСooling" EntitySet="CPUСooling" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HDD_DigitalStorageCapacityHDD" Association="Self.FK_HDD_DigitalStorageCapacityHDD">
+            <End Role="DigitalStorageCapacityHDD" EntitySet="DigitalStorageCapacityHDD" />
+            <End Role="HDD" EntitySet="HDD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OfficeStorage_Computer" Association="Self.FK_OfficeStorage_Computer">
+            <End Role="Computer" EntitySet="Computer" />
+            <End Role="OfficeStorage" EntitySet="OfficeStorage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OfficeStorage_ComputerMouse" Association="Self.FK_OfficeStorage_ComputerMouse">
+            <End Role="ComputerMouse" EntitySet="ComputerMouse" />
+            <End Role="OfficeStorage" EntitySet="OfficeStorage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OfficeStorage_Garniture" Association="Self.FK_OfficeStorage_Garniture">
+            <End Role="Garniture" EntitySet="Garniture" />
+            <End Role="OfficeStorage" EntitySet="OfficeStorage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OfficeStorage_Headphones" Association="Self.FK_OfficeStorage_Headphones">
+            <End Role="Headphones" EntitySet="Headphones" />
+            <End Role="OfficeStorage" EntitySet="OfficeStorage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OfficeStorage_Keyboard" Association="Self.FK_OfficeStorage_Keyboard">
+            <End Role="Keyboard" EntitySet="Keyboard" />
+            <End Role="OfficeStorage" EntitySet="OfficeStorage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OfficeStorage_Microphone" Association="Self.FK_OfficeStorage_Microphone">
+            <End Role="Microphone" EntitySet="Microphone" />
+            <End Role="OfficeStorage" EntitySet="OfficeStorage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OfficeStorage_Monitor" Association="Self.FK_OfficeStorage_Monitor">
+            <End Role="Monitor" EntitySet="Monitor" />
+            <End Role="OfficeStorage" EntitySet="OfficeStorage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OfficeStorage_Printer" Association="Self.FK_OfficeStorage_Printer">
+            <End Role="Printer" EntitySet="Printer" />
+            <End Role="OfficeStorage" EntitySet="OfficeStorage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OfficeStorage_Scanner" Association="Self.FK_OfficeStorage_Scanner">
+            <End Role="Scanner" EntitySet="Scanner" />
+            <End Role="OfficeStorage" EntitySet="OfficeStorage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OfficeStorage_Staff" Association="Self.FK_OfficeStorage_Staff">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="OfficeStorage" EntitySet="OfficeStorage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OfficeStorage_WebCamera" Association="Self.FK_OfficeStorage_WebCamera">
+            <End Role="WebCamera" EntitySet="WebCamera" />
+            <End Role="OfficeStorage" EntitySet="OfficeStorage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PowerSupply_Wattage" Association="Self.FK_PowerSupply_Wattage">
+            <End Role="Wattage" EntitySet="Wattage" />
+            <End Role="PowerSupply" EntitySet="PowerSupply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RAM_TypeOfRAM" Association="Self.FK_RAM_TypeOfRAM">
+            <End Role="TypeOfRAM" EntitySet="TypeOfRAM" />
+            <End Role="RAM" EntitySet="RAM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RAM1_RAM" Association="Self.FK_RAM1_RAM">
+            <End Role="RAM" EntitySet="RAM" />
+            <End Role="RAM1" EntitySet="RAM1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RAM2_RAM" Association="Self.FK_RAM2_RAM">
+            <End Role="RAM" EntitySet="RAM" />
+            <End Role="RAM2" EntitySet="RAM2" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RAM3_RAM" Association="Self.FK_RAM3_RAM">
+            <End Role="RAM" EntitySet="RAM" />
+            <End Role="RAM3" EntitySet="RAM3" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RAM4_RAM" Association="Self.FK_RAM4_RAM">
+            <End Role="RAM" EntitySet="RAM" />
+            <End Role="RAM4" EntitySet="RAM4" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SSD_DigitalStorageCapacitySSD" Association="Self.FK_SSD_DigitalStorageCapacitySSD">
+            <End Role="DigitalStorageCapacitySSD" EntitySet="DigitalStorageCapacitySSD" />
+            <End Role="SSD" EntitySet="SSD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_User" Association="Self.FK_Staff_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Computer">
+          <Key>
+            <PropertyRef Name="IdComputer" />
+          </Key>
+          <Property Name="IdComputer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCPU" Type="Int32" Nullable="false" />
+          <Property Name="IdMotherBoard" Type="Int32" Nullable="false" />
+          <Property Name="IdRAM1" Type="Int32" Nullable="false" />
+          <Property Name="IdRAM2" Type="Int32" />
+          <Property Name="IdRAM3" Type="Int32" />
+          <Property Name="IdRAM4" Type="Int32" />
+          <Property Name="IdGPU" Type="Int32" Nullable="false" />
+          <Property Name="IdHDD" Type="Int32" Nullable="false" />
+          <Property Name="IdCPUСooling" Type="Int32" Nullable="false" />
+          <Property Name="IdSSD" Type="Int32" />
+          <Property Name="IdComputerCase" Type="Int32" Nullable="false" />
+          <Property Name="IdPowerSupply" Type="Int32" Nullable="false" />
+          <Property Name="GuaranteeComputer" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SerialNumberComputer" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ComputerCase" Relationship="Self.FK_Computer_ComputerCase" FromRole="Computer" ToRole="ComputerCase" />
+          <NavigationProperty Name="CPU" Relationship="Self.FK_Computer_CPU" FromRole="Computer" ToRole="CPU" />
+          <NavigationProperty Name="CPUСooling" Relationship="Self.FK_Computer_CPUСooling" FromRole="Computer" ToRole="CPUСooling" />
+          <NavigationProperty Name="GPU" Relationship="Self.FK_Computer_GPU" FromRole="Computer" ToRole="GPU" />
+          <NavigationProperty Name="HDD" Relationship="Self.FK_Computer_HDD" FromRole="Computer" ToRole="HDD" />
+          <NavigationProperty Name="MotherBoard" Relationship="Self.FK_Computer_MotherBoard" FromRole="Computer" ToRole="MotherBoard" />
+          <NavigationProperty Name="PowerSupply" Relationship="Self.FK_Computer_PowerSupply" FromRole="Computer" ToRole="PowerSupply" />
+          <NavigationProperty Name="RAM1" Relationship="Self.FK_Computer_RAM1" FromRole="Computer" ToRole="RAM1" />
+          <NavigationProperty Name="RAM2" Relationship="Self.FK_Computer_RAM2" FromRole="Computer" ToRole="RAM2" />
+          <NavigationProperty Name="RAM3" Relationship="Self.FK_Computer_RAM3" FromRole="Computer" ToRole="RAM3" />
+          <NavigationProperty Name="RAM4" Relationship="Self.FK_Computer_RAM4" FromRole="Computer" ToRole="RAM4" />
+          <NavigationProperty Name="SSD" Relationship="Self.FK_Computer_SSD" FromRole="Computer" ToRole="SSD" />
+          <NavigationProperty Name="OfficeStorage" Relationship="Self.FK_OfficeStorage_Computer" FromRole="Computer" ToRole="OfficeStorage" />
+        </EntityType>
+        <EntityType Name="ComputerCase">
+          <Key>
+            <PropertyRef Name="IdComputerCase" />
+          </Key>
+          <Property Name="IdComputerCase" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameComputerCase" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SerialNumberComputerCase" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Computer" Relationship="Self.FK_Computer_ComputerCase" FromRole="ComputerCase" ToRole="Computer" />
+        </EntityType>
+        <EntityType Name="ComputerMouse">
+          <Key>
+            <PropertyRef Name="IdComputerMouse" />
+          </Key>
+          <Property Name="IdComputerMouse" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameComputerMouse" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SerialNumberComputerMouse" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GuaranteeComputerMouse" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="OfficeStorage" Relationship="Self.FK_OfficeStorage_ComputerMouse" FromRole="ComputerMouse" ToRole="OfficeStorage" />
+        </EntityType>
+        <EntityType Name="CPU">
+          <Key>
+            <PropertyRef Name="IdCPU" />
+          </Key>
+          <Property Name="IdCPU" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameCPU" Type="String" MaxLength="75" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SocketCPU" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SerialNumberCPU" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Computer" Relationship="Self.FK_Computer_CPU" FromRole="CPU" ToRole="Computer" />
+        </EntityType>
+        <EntityType Name="CPUСooling">
+          <Key>
+            <PropertyRef Name="IdCPUСooling" />
+          </Key>
+          <Property Name="IdCPUСooling" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameCPUСooling" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdTypeOfCPUСooling" Type="Int32" Nullable="false" />
+          <Property Name="SerialNumberCPUCooling" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Computer" Relationship="Self.FK_Computer_CPUСooling" FromRole="CPUСooling" ToRole="Computer" />
+          <NavigationProperty Name="TypeOfCPUСooling" Relationship="Self.FK_CPUСooling_TypeOfCPUСooling" FromRole="CPUСooling" ToRole="TypeOfCPUСooling" />
+        </EntityType>
+        <EntityType Name="DigitalStorageCapacityHDD">
+          <Key>
+            <PropertyRef Name="IdDigitalStorageCapacityHDD" />
+          </Key>
+          <Property Name="IdDigitalStorageCapacityHDD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameDigitalStorageCapacityHDD" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="HDD" Relationship="Self.FK_HDD_DigitalStorageCapacityHDD" FromRole="DigitalStorageCapacityHDD" ToRole="HDD" />
+        </EntityType>
+        <EntityType Name="DigitalStorageCapacitySSD">
+          <Key>
+            <PropertyRef Name="IdDigitalStorageCapacitySSD" />
+          </Key>
+          <Property Name="IdDigitalStorageCapacitySSD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameDigitalStorageCapacitySSD" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="SSD" Relationship="Self.FK_SSD_DigitalStorageCapacitySSD" FromRole="DigitalStorageCapacitySSD" ToRole="SSD" />
+        </EntityType>
+        <EntityType Name="Garniture">
+          <Key>
+            <PropertyRef Name="IdGarniture" />
+          </Key>
+          <Property Name="IdGarniture" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameGarniture" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SerialNumberGarniture" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GaranteeGarniture" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="OfficeStorage" Relationship="Self.FK_OfficeStorage_Garniture" FromRole="Garniture" ToRole="OfficeStorage" />
+        </EntityType>
+        <EntityType Name="GPU">
+          <Key>
+            <PropertyRef Name="IdGPU" />
+          </Key>
+          <Property Name="IdGPU" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameGPU" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SerialNumberGPU" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Computer" Relationship="Self.FK_Computer_GPU" FromRole="GPU" ToRole="Computer" />
+        </EntityType>
+        <EntityType Name="HDD">
+          <Key>
+            <PropertyRef Name="IdHDD" />
+          </Key>
+          <Property Name="IdHDD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameHDD" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdDigitalStorageCapacityHDD" Type="Int32" Nullable="false" />
+          <Property Name="QuantityHDD" Type="Int32" Nullable="false" />
+          <Property Name="SerialNumberHDD" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Computer" Relationship="Self.FK_Computer_HDD" FromRole="HDD" ToRole="Computer" />
+          <NavigationProperty Name="DigitalStorageCapacityHDD" Relationship="Self.FK_HDD_DigitalStorageCapacityHDD" FromRole="HDD" ToRole="DigitalStorageCapacityHDD" />
+        </EntityType>
+        <EntityType Name="Headphones">
+          <Key>
+            <PropertyRef Name="IdHeadphones" />
+          </Key>
+          <Property Name="IdHeadphones" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameHeadphones" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SerialNumberHeadphones" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GuaranteeHeadphones" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="OfficeStorage" Relationship="Self.FK_OfficeStorage_Headphones" FromRole="Headphones" ToRole="OfficeStorage" />
+        </EntityType>
+        <EntityType Name="Keyboard">
+          <Key>
+            <PropertyRef Name="IdKeyboard" />
+          </Key>
+          <Property Name="IdKeyboard" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameKeyboard" Type="String" MaxLength="85" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SerialNumberKeyboard" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GuaranteeKeyboard" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="OfficeStorage" Relationship="Self.FK_OfficeStorage_Keyboard" FromRole="Keyboard" ToRole="OfficeStorage" />
+        </EntityType>
+        <EntityType Name="Microphone">
+          <Key>
+            <PropertyRef Name="IdMicrophone" />
+          </Key>
+          <Property Name="IdMicrophone" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameMicrophone" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SerialNumberMicrophone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GuaranteeMicrophone" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="OfficeStorage" Relationship="Self.FK_OfficeStorage_Microphone" FromRole="Microphone" ToRole="OfficeStorage" />
+        </EntityType>
+        <EntityType Name="Monitor">
+          <Key>
+            <PropertyRef Name="IdMonitor" />
+          </Key>
+          <Property Name="IdMonitor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameMonitor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SerialNumberMonitor" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GuaranteeMonitor" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="OfficeStorage" Relationship="Self.FK_OfficeStorage_Monitor" FromRole="Monitor" ToRole="OfficeStorage" />
+        </EntityType>
+        <EntityType Name="MotherBoard">
+          <Key>
+            <PropertyRef Name="IdMotherBoard" />
+          </Key>
+          <Property Name="IdMotherBoard" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameMotherBoard" Type="String" MaxLength="75" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SocketMotherBoard" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SerialNumberMotherBoard" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Computer" Relationship="Self.FK_Computer_MotherBoard" FromRole="MotherBoard" ToRole="Computer" />
+        </EntityType>
+        <EntityType Name="OfficeStorage">
+          <Key>
+            <PropertyRef Name="IdOfficeStorage" />
+          </Key>
+          <Property Name="IdOfficeStorage" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdComputer" Type="Int32" Nullable="false" />
+          <Property Name="IdStaff" Type="Int32" Nullable="false" />
+          <Property Name="IdKeyboard" Type="Int32" Nullable="false" />
+          <Property Name="IdComputerMouse" Type="Int32" Nullable="false" />
+          <Property Name="IdScanner" Type="Int32" />
+          <Property Name="IdMicrophone" Type="Int32" />
+          <Property Name="IdWebCamera" Type="Int32" />
+          <Property Name="IdMonitor" Type="Int32" Nullable="false" />
+          <Property Name="IdPrinter" Type="Int32" />
+          <Property Name="IdHeadphones" Type="Int32" />
+          <Property Name="IdGarniture" Type="Int32" />
+          <NavigationProperty Name="Computer" Relationship="Self.FK_OfficeStorage_Computer" FromRole="OfficeStorage" ToRole="Computer" />
+          <NavigationProperty Name="ComputerMouse" Relationship="Self.FK_OfficeStorage_ComputerMouse" FromRole="OfficeStorage" ToRole="ComputerMouse" />
+          <NavigationProperty Name="Garniture" Relationship="Self.FK_OfficeStorage_Garniture" FromRole="OfficeStorage" ToRole="Garniture" />
+          <NavigationProperty Name="Headphones" Relationship="Self.FK_OfficeStorage_Headphones" FromRole="OfficeStorage" ToRole="Headphones" />
+          <NavigationProperty Name="Keyboard" Relationship="Self.FK_OfficeStorage_Keyboard" FromRole="OfficeStorage" ToRole="Keyboard" />
+          <NavigationProperty Name="Microphone" Relationship="Self.FK_OfficeStorage_Microphone" FromRole="OfficeStorage" ToRole="Microphone" />
+          <NavigationProperty Name="Monitor" Relationship="Self.FK_OfficeStorage_Monitor" FromRole="OfficeStorage" ToRole="Monitor" />
+          <NavigationProperty Name="Printer" Relationship="Self.FK_OfficeStorage_Printer" FromRole="OfficeStorage" ToRole="Printer" />
+          <NavigationProperty Name="Scanner" Relationship="Self.FK_OfficeStorage_Scanner" FromRole="OfficeStorage" ToRole="Scanner" />
+          <NavigationProperty Name="Staff" Relationship="Self.FK_OfficeStorage_Staff" FromRole="OfficeStorage" ToRole="Staff" />
+          <NavigationProperty Name="WebCamera" Relationship="Self.FK_OfficeStorage_WebCamera" FromRole="OfficeStorage" ToRole="WebCamera" />
+        </EntityType>
+        <EntityType Name="PowerSupply">
+          <Key>
+            <PropertyRef Name="IdPowerSupply" />
+          </Key>
+          <Property Name="IdPowerSupply" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NamePowerSupply" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdWattage" Type="Int32" Nullable="false" />
+          <Property Name="SerialNumberPowerSupply" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Computer" Relationship="Self.FK_Computer_PowerSupply" FromRole="PowerSupply" ToRole="Computer" />
+          <NavigationProperty Name="Wattage" Relationship="Self.FK_PowerSupply_Wattage" FromRole="PowerSupply" ToRole="Wattage" />
+        </EntityType>
+        <EntityType Name="Printer">
+          <Key>
+            <PropertyRef Name="IdPrinter" />
+          </Key>
+          <Property Name="IdPrinter" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NamePrinter" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SerialNumberPrinter" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GuaranteePrinter" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="OfficeStorage" Relationship="Self.FK_OfficeStorage_Printer" FromRole="Printer" ToRole="OfficeStorage" />
+        </EntityType>
+        <EntityType Name="RAM">
+          <Key>
+            <PropertyRef Name="IdRAM" />
+          </Key>
+          <Property Name="IdRAM" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameRAM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdTypeOfRAM" Type="Int32" Nullable="false" />
+          <Property Name="SerialNumberRAM" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TypeOfRAM" Relationship="Self.FK_RAM_TypeOfRAM" FromRole="RAM" ToRole="TypeOfRAM" />
+          <NavigationProperty Name="RAM1" Relationship="Self.FK_RAM1_RAM" FromRole="RAM" ToRole="RAM1" />
+          <NavigationProperty Name="RAM2" Relationship="Self.FK_RAM2_RAM" FromRole="RAM" ToRole="RAM2" />
+          <NavigationProperty Name="RAM3" Relationship="Self.FK_RAM3_RAM" FromRole="RAM" ToRole="RAM3" />
+          <NavigationProperty Name="RAM4" Relationship="Self.FK_RAM4_RAM" FromRole="RAM" ToRole="RAM4" />
+        </EntityType>
+        <EntityType Name="RAM1">
+          <Key>
+            <PropertyRef Name="IdRAM1" />
+          </Key>
+          <Property Name="IdRAM1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdRAM" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Computer" Relationship="Self.FK_Computer_RAM1" FromRole="RAM1" ToRole="Computer" />
+          <NavigationProperty Name="RAM" Relationship="Self.FK_RAM1_RAM" FromRole="RAM1" ToRole="RAM" />
+        </EntityType>
+        <EntityType Name="RAM2">
+          <Key>
+            <PropertyRef Name="IdRAM2" />
+          </Key>
+          <Property Name="IdRAM2" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdRAM" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Computer" Relationship="Self.FK_Computer_RAM2" FromRole="RAM2" ToRole="Computer" />
+          <NavigationProperty Name="RAM" Relationship="Self.FK_RAM2_RAM" FromRole="RAM2" ToRole="RAM" />
+        </EntityType>
+        <EntityType Name="RAM3">
+          <Key>
+            <PropertyRef Name="IdRAM3" />
+          </Key>
+          <Property Name="IdRAM3" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdRAM" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Computer" Relationship="Self.FK_Computer_RAM3" FromRole="RAM3" ToRole="Computer" />
+          <NavigationProperty Name="RAM" Relationship="Self.FK_RAM3_RAM" FromRole="RAM3" ToRole="RAM" />
+        </EntityType>
+        <EntityType Name="RAM4">
+          <Key>
+            <PropertyRef Name="IdRAM4" />
+          </Key>
+          <Property Name="IdRAM4" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdRAM" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Computer" Relationship="Self.FK_Computer_RAM4" FromRole="RAM4" ToRole="Computer" />
+          <NavigationProperty Name="RAM" Relationship="Self.FK_RAM4_RAM" FromRole="RAM4" ToRole="RAM" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="IdRole" />
+          </Key>
+          <Property Name="IdRole" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameRole" Type="String" MaxLength="55" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Scanner">
+          <Key>
+            <PropertyRef Name="IdScanner" />
+          </Key>
+          <Property Name="IdScanner" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameScanner" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SerialNumberScanner" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GuaranteeScanner" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="OfficeStorage" Relationship="Self.FK_OfficeStorage_Scanner" FromRole="Scanner" ToRole="OfficeStorage" />
+        </EntityType>
+        <EntityType Name="SerialNumberRAM">
+          <Key>
+            <PropertyRef Name="IdSerialNumberRAM" />
+          </Key>
+          <Property Name="IdSerialNumberRAM" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameSerialNumberRAM" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdRAM" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SSD">
+          <Key>
+            <PropertyRef Name="IdSSD" />
+          </Key>
+          <Property Name="IdSSD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameSSD" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdDigitalStorageCapacitySSD" Type="Int32" Nullable="false" />
+          <Property Name="QuantitySSD" Type="Int32" Nullable="false" />
+          <Property Name="SerialNumberSSD" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Computer" Relationship="Self.FK_Computer_SSD" FromRole="SSD" ToRole="Computer" />
+          <NavigationProperty Name="DigitalStorageCapacitySSD" Relationship="Self.FK_SSD_DigitalStorageCapacitySSD" FromRole="SSD" ToRole="DigitalStorageCapacitySSD" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="IdStaff" />
+          </Key>
+          <Property Name="IdStaff" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LastNameStaff" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FirstNameStaff" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MiddleNameStaff" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberStaff" Type="String" MaxLength="19" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmailStaff" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdUser" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="OfficeStorage" Relationship="Self.FK_OfficeStorage_Staff" FromRole="Staff" ToRole="OfficeStorage" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Staff_User" FromRole="Staff" ToRole="User" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TypeOfCPUСooling">
+          <Key>
+            <PropertyRef Name="IdTypeOfCPUСooling" />
+          </Key>
+          <Property Name="IdTypeOfCPUСooling" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameTypeOfCPUСooling" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CPUСooling" Relationship="Self.FK_CPUСooling_TypeOfCPUСooling" FromRole="TypeOfCPUСooling" ToRole="CPUСooling" />
+        </EntityType>
+        <EntityType Name="TypeOfRAM">
+          <Key>
+            <PropertyRef Name="IdTypeOfRAM" />
+          </Key>
+          <Property Name="IdTypeOfRAM" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameTypeOfRAM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="RAM" Relationship="Self.FK_RAM_TypeOfRAM" FromRole="TypeOfRAM" ToRole="RAM" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="IdUser" />
+          </Key>
+          <Property Name="IdUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoginUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PasswordUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdRole" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
+          <NavigationProperty Name="Staff" Relationship="Self.FK_Staff_User" FromRole="User" ToRole="Staff" />
+        </EntityType>
+        <EntityType Name="Wattage">
+          <Key>
+            <PropertyRef Name="IdWattage" />
+          </Key>
+          <Property Name="IdWattage" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameWattage" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="PowerSupply" Relationship="Self.FK_PowerSupply_Wattage" FromRole="Wattage" ToRole="PowerSupply" />
+        </EntityType>
+        <EntityType Name="WebCamera">
+          <Key>
+            <PropertyRef Name="IdWebCamera" />
+          </Key>
+          <Property Name="IdWebCamera" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameWebCamera" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SerialNumberWebCamera" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GuaranteeWebCamera" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="OfficeStorage" Relationship="Self.FK_OfficeStorage_WebCamera" FromRole="WebCamera" ToRole="OfficeStorage" />
+        </EntityType>
+        <Association Name="FK_Computer_ComputerCase">
+          <End Role="ComputerCase" Type="Self.ComputerCase" Multiplicity="1" />
+          <End Role="Computer" Type="Self.Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ComputerCase">
+              <PropertyRef Name="IdComputerCase" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="IdComputerCase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_CPU">
+          <End Role="CPU" Type="Self.CPU" Multiplicity="1" />
+          <End Role="Computer" Type="Self.Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CPU">
+              <PropertyRef Name="IdCPU" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="IdCPU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_CPUСooling">
+          <End Role="CPUСooling" Type="Self.CPUСooling" Multiplicity="1" />
+          <End Role="Computer" Type="Self.Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CPUСooling">
+              <PropertyRef Name="IdCPUСooling" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="IdCPUСooling" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_GPU">
+          <End Role="GPU" Type="Self.GPU" Multiplicity="1" />
+          <End Role="Computer" Type="Self.Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GPU">
+              <PropertyRef Name="IdGPU" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="IdGPU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_HDD">
+          <End Role="HDD" Type="Self.HDD" Multiplicity="1" />
+          <End Role="Computer" Type="Self.Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HDD">
+              <PropertyRef Name="IdHDD" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="IdHDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_MotherBoard">
+          <End Role="MotherBoard" Type="Self.MotherBoard" Multiplicity="1" />
+          <End Role="Computer" Type="Self.Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MotherBoard">
+              <PropertyRef Name="IdMotherBoard" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="IdMotherBoard" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_PowerSupply">
+          <End Role="PowerSupply" Type="Self.PowerSupply" Multiplicity="1" />
+          <End Role="Computer" Type="Self.Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PowerSupply">
+              <PropertyRef Name="IdPowerSupply" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="IdPowerSupply" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_RAM1">
+          <End Role="RAM1" Type="Self.RAM1" Multiplicity="1" />
+          <End Role="Computer" Type="Self.Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RAM1">
+              <PropertyRef Name="IdRAM1" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="IdRAM1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_RAM2">
+          <End Role="RAM2" Type="Self.RAM2" Multiplicity="0..1" />
+          <End Role="Computer" Type="Self.Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RAM2">
+              <PropertyRef Name="IdRAM2" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="IdRAM2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_RAM3">
+          <End Role="RAM3" Type="Self.RAM3" Multiplicity="0..1" />
+          <End Role="Computer" Type="Self.Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RAM3">
+              <PropertyRef Name="IdRAM3" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="IdRAM3" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_RAM4">
+          <End Role="RAM4" Type="Self.RAM4" Multiplicity="0..1" />
+          <End Role="Computer" Type="Self.Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RAM4">
+              <PropertyRef Name="IdRAM4" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="IdRAM4" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_SSD">
+          <End Role="SSD" Type="Self.SSD" Multiplicity="0..1" />
+          <End Role="Computer" Type="Self.Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SSD">
+              <PropertyRef Name="IdSSD" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="IdSSD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OfficeStorage_Computer">
+          <End Role="Computer" Type="Self.Computer" Multiplicity="1" />
+          <End Role="OfficeStorage" Type="Self.OfficeStorage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Computer">
+              <PropertyRef Name="IdComputer" />
+            </Principal>
+            <Dependent Role="OfficeStorage">
+              <PropertyRef Name="IdComputer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OfficeStorage_ComputerMouse">
+          <End Role="ComputerMouse" Type="Self.ComputerMouse" Multiplicity="1" />
+          <End Role="OfficeStorage" Type="Self.OfficeStorage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ComputerMouse">
+              <PropertyRef Name="IdComputerMouse" />
+            </Principal>
+            <Dependent Role="OfficeStorage">
+              <PropertyRef Name="IdComputerMouse" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CPUСooling_TypeOfCPUСooling">
+          <End Role="TypeOfCPUСooling" Type="Self.TypeOfCPUСooling" Multiplicity="1" />
+          <End Role="CPUСooling" Type="Self.CPUСooling" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeOfCPUСooling">
+              <PropertyRef Name="IdTypeOfCPUСooling" />
+            </Principal>
+            <Dependent Role="CPUСooling">
+              <PropertyRef Name="IdTypeOfCPUСooling" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HDD_DigitalStorageCapacityHDD">
+          <End Role="DigitalStorageCapacityHDD" Type="Self.DigitalStorageCapacityHDD" Multiplicity="1" />
+          <End Role="HDD" Type="Self.HDD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DigitalStorageCapacityHDD">
+              <PropertyRef Name="IdDigitalStorageCapacityHDD" />
+            </Principal>
+            <Dependent Role="HDD">
+              <PropertyRef Name="IdDigitalStorageCapacityHDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SSD_DigitalStorageCapacitySSD">
+          <End Role="DigitalStorageCapacitySSD" Type="Self.DigitalStorageCapacitySSD" Multiplicity="1" />
+          <End Role="SSD" Type="Self.SSD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DigitalStorageCapacitySSD">
+              <PropertyRef Name="IdDigitalStorageCapacitySSD" />
+            </Principal>
+            <Dependent Role="SSD">
+              <PropertyRef Name="IdDigitalStorageCapacitySSD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OfficeStorage_Garniture">
+          <End Role="Garniture" Type="Self.Garniture" Multiplicity="0..1" />
+          <End Role="OfficeStorage" Type="Self.OfficeStorage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Garniture">
+              <PropertyRef Name="IdGarniture" />
+            </Principal>
+            <Dependent Role="OfficeStorage">
+              <PropertyRef Name="IdGarniture" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OfficeStorage_Headphones">
+          <End Role="Headphones" Type="Self.Headphones" Multiplicity="0..1" />
+          <End Role="OfficeStorage" Type="Self.OfficeStorage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Headphones">
+              <PropertyRef Name="IdHeadphones" />
+            </Principal>
+            <Dependent Role="OfficeStorage">
+              <PropertyRef Name="IdHeadphones" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OfficeStorage_Keyboard">
+          <End Role="Keyboard" Type="Self.Keyboard" Multiplicity="1" />
+          <End Role="OfficeStorage" Type="Self.OfficeStorage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Keyboard">
+              <PropertyRef Name="IdKeyboard" />
+            </Principal>
+            <Dependent Role="OfficeStorage">
+              <PropertyRef Name="IdKeyboard" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OfficeStorage_Microphone">
+          <End Role="Microphone" Type="Self.Microphone" Multiplicity="0..1" />
+          <End Role="OfficeStorage" Type="Self.OfficeStorage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Microphone">
+              <PropertyRef Name="IdMicrophone" />
+            </Principal>
+            <Dependent Role="OfficeStorage">
+              <PropertyRef Name="IdMicrophone" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OfficeStorage_Monitor">
+          <End Role="Monitor" Type="Self.Monitor" Multiplicity="1" />
+          <End Role="OfficeStorage" Type="Self.OfficeStorage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Monitor">
+              <PropertyRef Name="IdMonitor" />
+            </Principal>
+            <Dependent Role="OfficeStorage">
+              <PropertyRef Name="IdMonitor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OfficeStorage_Printer">
+          <End Role="Printer" Type="Self.Printer" Multiplicity="0..1" />
+          <End Role="OfficeStorage" Type="Self.OfficeStorage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Printer">
+              <PropertyRef Name="IdPrinter" />
+            </Principal>
+            <Dependent Role="OfficeStorage">
+              <PropertyRef Name="IdPrinter" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OfficeStorage_Scanner">
+          <End Role="Scanner" Type="Self.Scanner" Multiplicity="0..1" />
+          <End Role="OfficeStorage" Type="Self.OfficeStorage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Scanner">
+              <PropertyRef Name="IdScanner" />
+            </Principal>
+            <Dependent Role="OfficeStorage">
+              <PropertyRef Name="IdScanner" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OfficeStorage_Staff">
+          <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+          <End Role="OfficeStorage" Type="Self.OfficeStorage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="IdStaff" />
+            </Principal>
+            <Dependent Role="OfficeStorage">
+              <PropertyRef Name="IdStaff" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OfficeStorage_WebCamera">
+          <End Role="WebCamera" Type="Self.WebCamera" Multiplicity="0..1" />
+          <End Role="OfficeStorage" Type="Self.OfficeStorage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WebCamera">
+              <PropertyRef Name="IdWebCamera" />
+            </Principal>
+            <Dependent Role="OfficeStorage">
+              <PropertyRef Name="IdWebCamera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PowerSupply_Wattage">
+          <End Role="Wattage" Type="Self.Wattage" Multiplicity="1" />
+          <End Role="PowerSupply" Type="Self.PowerSupply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wattage">
+              <PropertyRef Name="IdWattage" />
+            </Principal>
+            <Dependent Role="PowerSupply">
+              <PropertyRef Name="IdWattage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RAM_TypeOfRAM">
+          <End Role="TypeOfRAM" Type="Self.TypeOfRAM" Multiplicity="1" />
+          <End Role="RAM" Type="Self.RAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeOfRAM">
+              <PropertyRef Name="IdTypeOfRAM" />
+            </Principal>
+            <Dependent Role="RAM">
+              <PropertyRef Name="IdTypeOfRAM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RAM1_RAM">
+          <End Role="RAM" Type="Self.RAM" Multiplicity="1" />
+          <End Role="RAM1" Type="Self.RAM1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RAM">
+              <PropertyRef Name="IdRAM" />
+            </Principal>
+            <Dependent Role="RAM1">
+              <PropertyRef Name="IdRAM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RAM2_RAM">
+          <End Role="RAM" Type="Self.RAM" Multiplicity="1" />
+          <End Role="RAM2" Type="Self.RAM2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RAM">
+              <PropertyRef Name="IdRAM" />
+            </Principal>
+            <Dependent Role="RAM2">
+              <PropertyRef Name="IdRAM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RAM3_RAM">
+          <End Role="RAM" Type="Self.RAM" Multiplicity="1" />
+          <End Role="RAM3" Type="Self.RAM3" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RAM">
+              <PropertyRef Name="IdRAM" />
+            </Principal>
+            <Dependent Role="RAM3">
+              <PropertyRef Name="IdRAM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RAM4_RAM">
+          <End Role="RAM" Type="Self.RAM" Multiplicity="1" />
+          <End Role="RAM4" Type="Self.RAM4" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RAM">
+              <PropertyRef Name="IdRAM" />
+            </Principal>
+            <Dependent Role="RAM4">
+              <PropertyRef Name="IdRAM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="IdRole" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="IdRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Computer" EntityType="Self.Computer" />
+          <EntitySet Name="ComputerCase" EntityType="Self.ComputerCase" />
+          <EntitySet Name="ComputerMouse" EntityType="Self.ComputerMouse" />
+          <EntitySet Name="CPU" EntityType="Self.CPU" />
+          <EntitySet Name="CPUСooling" EntityType="Self.CPUСooling" />
+          <EntitySet Name="DigitalStorageCapacityHDD" EntityType="Self.DigitalStorageCapacityHDD" />
+          <EntitySet Name="DigitalStorageCapacitySSD" EntityType="Self.DigitalStorageCapacitySSD" />
+          <EntitySet Name="Garniture" EntityType="Self.Garniture" />
+          <EntitySet Name="GPU" EntityType="Self.GPU" />
+          <EntitySet Name="HDD" EntityType="Self.HDD" />
+          <EntitySet Name="Headphones" EntityType="Self.Headphones" />
+          <EntitySet Name="Keyboard" EntityType="Self.Keyboard" />
+          <EntitySet Name="Microphone" EntityType="Self.Microphone" />
+          <EntitySet Name="Monitor" EntityType="Self.Monitor" />
+          <EntitySet Name="MotherBoard" EntityType="Self.MotherBoard" />
+          <EntitySet Name="OfficeStorage" EntityType="Self.OfficeStorage" />
+          <EntitySet Name="PowerSupply" EntityType="Self.PowerSupply" />
+          <EntitySet Name="Printer" EntityType="Self.Printer" />
+          <EntitySet Name="RAM" EntityType="Self.RAM" />
+          <EntitySet Name="RAM1" EntityType="Self.RAM1" />
+          <EntitySet Name="RAM2" EntityType="Self.RAM2" />
+          <EntitySet Name="RAM3" EntityType="Self.RAM3" />
+          <EntitySet Name="RAM4" EntityType="Self.RAM4" />
+          <EntitySet Name="Role" EntityType="Self.Role" />
+          <EntitySet Name="Scanner" EntityType="Self.Scanner" />
+          <EntitySet Name="SerialNumberRAM" EntityType="Self.SerialNumberRAM" />
+          <EntitySet Name="SSD" EntityType="Self.SSD" />
+          <EntitySet Name="Staff" EntityType="Self.Staff" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="TypeOfCPUСooling" EntityType="Self.TypeOfCPUСooling" />
+          <EntitySet Name="TypeOfRAM" EntityType="Self.TypeOfRAM" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <EntitySet Name="Wattage" EntityType="Self.Wattage" />
+          <EntitySet Name="WebCamera" EntityType="Self.WebCamera" />
+          <AssociationSet Name="FK_Computer_ComputerCase" Association="Self.FK_Computer_ComputerCase">
+            <End Role="ComputerCase" EntitySet="ComputerCase" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_CPU" Association="Self.FK_Computer_CPU">
+            <End Role="CPU" EntitySet="CPU" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_CPUСooling" Association="Self.FK_Computer_CPUСooling">
+            <End Role="CPUСooling" EntitySet="CPUСooling" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_GPU" Association="Self.FK_Computer_GPU">
+            <End Role="GPU" EntitySet="GPU" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_HDD" Association="Self.FK_Computer_HDD">
+            <End Role="HDD" EntitySet="HDD" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_MotherBoard" Association="Self.FK_Computer_MotherBoard">
+            <End Role="MotherBoard" EntitySet="MotherBoard" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_PowerSupply" Association="Self.FK_Computer_PowerSupply">
+            <End Role="PowerSupply" EntitySet="PowerSupply" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_RAM1" Association="Self.FK_Computer_RAM1">
+            <End Role="RAM1" EntitySet="RAM1" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_RAM2" Association="Self.FK_Computer_RAM2">
+            <End Role="RAM2" EntitySet="RAM2" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_RAM3" Association="Self.FK_Computer_RAM3">
+            <End Role="RAM3" EntitySet="RAM3" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_RAM4" Association="Self.FK_Computer_RAM4">
+            <End Role="RAM4" EntitySet="RAM4" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_SSD" Association="Self.FK_Computer_SSD">
+            <End Role="SSD" EntitySet="SSD" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OfficeStorage_Computer" Association="Self.FK_OfficeStorage_Computer">
+            <End Role="Computer" EntitySet="Computer" />
+            <End Role="OfficeStorage" EntitySet="OfficeStorage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OfficeStorage_ComputerMouse" Association="Self.FK_OfficeStorage_ComputerMouse">
+            <End Role="ComputerMouse" EntitySet="ComputerMouse" />
+            <End Role="OfficeStorage" EntitySet="OfficeStorage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CPUСooling_TypeOfCPUСooling" Association="Self.FK_CPUСooling_TypeOfCPUСooling">
+            <End Role="TypeOfCPUСooling" EntitySet="TypeOfCPUСooling" />
+            <End Role="CPUСooling" EntitySet="CPUСooling" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HDD_DigitalStorageCapacityHDD" Association="Self.FK_HDD_DigitalStorageCapacityHDD">
+            <End Role="DigitalStorageCapacityHDD" EntitySet="DigitalStorageCapacityHDD" />
+            <End Role="HDD" EntitySet="HDD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SSD_DigitalStorageCapacitySSD" Association="Self.FK_SSD_DigitalStorageCapacitySSD">
+            <End Role="DigitalStorageCapacitySSD" EntitySet="DigitalStorageCapacitySSD" />
+            <End Role="SSD" EntitySet="SSD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OfficeStorage_Garniture" Association="Self.FK_OfficeStorage_Garniture">
+            <End Role="Garniture" EntitySet="Garniture" />
+            <End Role="OfficeStorage" EntitySet="OfficeStorage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OfficeStorage_Headphones" Association="Self.FK_OfficeStorage_Headphones">
+            <End Role="Headphones" EntitySet="Headphones" />
+            <End Role="OfficeStorage" EntitySet="OfficeStorage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OfficeStorage_Keyboard" Association="Self.FK_OfficeStorage_Keyboard">
+            <End Role="Keyboard" EntitySet="Keyboard" />
+            <End Role="OfficeStorage" EntitySet="OfficeStorage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OfficeStorage_Microphone" Association="Self.FK_OfficeStorage_Microphone">
+            <End Role="Microphone" EntitySet="Microphone" />
+            <End Role="OfficeStorage" EntitySet="OfficeStorage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OfficeStorage_Monitor" Association="Self.FK_OfficeStorage_Monitor">
+            <End Role="Monitor" EntitySet="Monitor" />
+            <End Role="OfficeStorage" EntitySet="OfficeStorage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OfficeStorage_Printer" Association="Self.FK_OfficeStorage_Printer">
+            <End Role="Printer" EntitySet="Printer" />
+            <End Role="OfficeStorage" EntitySet="OfficeStorage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OfficeStorage_Scanner" Association="Self.FK_OfficeStorage_Scanner">
+            <End Role="Scanner" EntitySet="Scanner" />
+            <End Role="OfficeStorage" EntitySet="OfficeStorage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OfficeStorage_Staff" Association="Self.FK_OfficeStorage_Staff">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="OfficeStorage" EntitySet="OfficeStorage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OfficeStorage_WebCamera" Association="Self.FK_OfficeStorage_WebCamera">
+            <End Role="WebCamera" EntitySet="WebCamera" />
+            <End Role="OfficeStorage" EntitySet="OfficeStorage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PowerSupply_Wattage" Association="Self.FK_PowerSupply_Wattage">
+            <End Role="Wattage" EntitySet="Wattage" />
+            <End Role="PowerSupply" EntitySet="PowerSupply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RAM_TypeOfRAM" Association="Self.FK_RAM_TypeOfRAM">
+            <End Role="TypeOfRAM" EntitySet="TypeOfRAM" />
+            <End Role="RAM" EntitySet="RAM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RAM1_RAM" Association="Self.FK_RAM1_RAM">
+            <End Role="RAM" EntitySet="RAM" />
+            <End Role="RAM1" EntitySet="RAM1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RAM2_RAM" Association="Self.FK_RAM2_RAM">
+            <End Role="RAM" EntitySet="RAM" />
+            <End Role="RAM2" EntitySet="RAM2" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RAM3_RAM" Association="Self.FK_RAM3_RAM">
+            <End Role="RAM" EntitySet="RAM" />
+            <End Role="RAM3" EntitySet="RAM3" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RAM4_RAM" Association="Self.FK_RAM4_RAM">
+            <End Role="RAM" EntitySet="RAM" />
+            <End Role="RAM4" EntitySet="RAM4" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_User" Association="Self.FK_Staff_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище DBModelContainer" CdmEntityContainer="DBEntities">
+          <EntitySetMapping Name="Computer">
+            <EntityTypeMapping TypeName="DBModel.Computer">
+              <MappingFragment StoreEntitySet="Computer">
+                <ScalarProperty Name="IdComputer" ColumnName="IdComputer" />
+                <ScalarProperty Name="IdCPU" ColumnName="IdCPU" />
+                <ScalarProperty Name="IdMotherBoard" ColumnName="IdMotherBoard" />
+                <ScalarProperty Name="IdRAM1" ColumnName="IdRAM1" />
+                <ScalarProperty Name="IdRAM2" ColumnName="IdRAM2" />
+                <ScalarProperty Name="IdRAM3" ColumnName="IdRAM3" />
+                <ScalarProperty Name="IdRAM4" ColumnName="IdRAM4" />
+                <ScalarProperty Name="IdGPU" ColumnName="IdGPU" />
+                <ScalarProperty Name="IdHDD" ColumnName="IdHDD" />
+                <ScalarProperty Name="IdCPUСooling" ColumnName="IdCPUСooling" />
+                <ScalarProperty Name="IdSSD" ColumnName="IdSSD" />
+                <ScalarProperty Name="IdComputerCase" ColumnName="IdComputerCase" />
+                <ScalarProperty Name="IdPowerSupply" ColumnName="IdPowerSupply" />
+                <ScalarProperty Name="GuaranteeComputer" ColumnName="GuaranteeComputer" />
+                <ScalarProperty Name="SerialNumberComputer" ColumnName="SerialNumberComputer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ComputerCase">
+            <EntityTypeMapping TypeName="DBModel.ComputerCase">
+              <MappingFragment StoreEntitySet="ComputerCase">
+                <ScalarProperty Name="IdComputerCase" ColumnName="IdComputerCase" />
+                <ScalarProperty Name="NameComputerCase" ColumnName="NameComputerCase" />
+                <ScalarProperty Name="SerialNumberComputerCase" ColumnName="SerialNumberComputerCase" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ComputerMouse">
+            <EntityTypeMapping TypeName="DBModel.ComputerMouse">
+              <MappingFragment StoreEntitySet="ComputerMouse">
+                <ScalarProperty Name="IdComputerMouse" ColumnName="IdComputerMouse" />
+                <ScalarProperty Name="NameComputerMouse" ColumnName="NameComputerMouse" />
+                <ScalarProperty Name="SerialNumberComputerMouse" ColumnName="SerialNumberComputerMouse" />
+                <ScalarProperty Name="GuaranteeComputerMouse" ColumnName="GuaranteeComputerMouse" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CPU">
+            <EntityTypeMapping TypeName="DBModel.CPU">
+              <MappingFragment StoreEntitySet="CPU">
+                <ScalarProperty Name="IdCPU" ColumnName="IdCPU" />
+                <ScalarProperty Name="NameCPU" ColumnName="NameCPU" />
+                <ScalarProperty Name="SocketCPU" ColumnName="SocketCPU" />
+                <ScalarProperty Name="SerialNumberCPU" ColumnName="SerialNumberCPU" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CPUСooling">
+            <EntityTypeMapping TypeName="DBModel.CPUСooling">
+              <MappingFragment StoreEntitySet="CPUСooling">
+                <ScalarProperty Name="IdCPUСooling" ColumnName="IdCPUСooling" />
+                <ScalarProperty Name="NameCPUСooling" ColumnName="NameCPUСooling" />
+                <ScalarProperty Name="IdTypeOfCPUСooling" ColumnName="IdTypeOfCPUСooling" />
+                <ScalarProperty Name="SerialNumberCPUCooling" ColumnName="SerialNumberCPUCooling" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DigitalStorageCapacityHDD">
+            <EntityTypeMapping TypeName="DBModel.DigitalStorageCapacityHDD">
+              <MappingFragment StoreEntitySet="DigitalStorageCapacityHDD">
+                <ScalarProperty Name="IdDigitalStorageCapacityHDD" ColumnName="IdDigitalStorageCapacityHDD" />
+                <ScalarProperty Name="NameDigitalStorageCapacityHDD" ColumnName="NameDigitalStorageCapacityHDD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DigitalStorageCapacitySSD">
+            <EntityTypeMapping TypeName="DBModel.DigitalStorageCapacitySSD">
+              <MappingFragment StoreEntitySet="DigitalStorageCapacitySSD">
+                <ScalarProperty Name="IdDigitalStorageCapacitySSD" ColumnName="IdDigitalStorageCapacitySSD" />
+                <ScalarProperty Name="NameDigitalStorageCapacitySSD" ColumnName="NameDigitalStorageCapacitySSD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Garniture">
+            <EntityTypeMapping TypeName="DBModel.Garniture">
+              <MappingFragment StoreEntitySet="Garniture">
+                <ScalarProperty Name="IdGarniture" ColumnName="IdGarniture" />
+                <ScalarProperty Name="NameGarniture" ColumnName="NameGarniture" />
+                <ScalarProperty Name="SerialNumberGarniture" ColumnName="SerialNumberGarniture" />
+                <ScalarProperty Name="GaranteeGarniture" ColumnName="GaranteeGarniture" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GPU">
+            <EntityTypeMapping TypeName="DBModel.GPU">
+              <MappingFragment StoreEntitySet="GPU">
+                <ScalarProperty Name="IdGPU" ColumnName="IdGPU" />
+                <ScalarProperty Name="NameGPU" ColumnName="NameGPU" />
+                <ScalarProperty Name="SerialNumberGPU" ColumnName="SerialNumberGPU" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HDD">
+            <EntityTypeMapping TypeName="DBModel.HDD">
+              <MappingFragment StoreEntitySet="HDD">
+                <ScalarProperty Name="IdHDD" ColumnName="IdHDD" />
+                <ScalarProperty Name="NameHDD" ColumnName="NameHDD" />
+                <ScalarProperty Name="IdDigitalStorageCapacityHDD" ColumnName="IdDigitalStorageCapacityHDD" />
+                <ScalarProperty Name="QuantityHDD" ColumnName="QuantityHDD" />
+                <ScalarProperty Name="SerialNumberHDD" ColumnName="SerialNumberHDD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Headphones">
+            <EntityTypeMapping TypeName="DBModel.Headphones">
+              <MappingFragment StoreEntitySet="Headphones">
+                <ScalarProperty Name="IdHeadphones" ColumnName="IdHeadphones" />
+                <ScalarProperty Name="NameHeadphones" ColumnName="NameHeadphones" />
+                <ScalarProperty Name="SerialNumberHeadphones" ColumnName="SerialNumberHeadphones" />
+                <ScalarProperty Name="GuaranteeHeadphones" ColumnName="GuaranteeHeadphones" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Keyboard">
+            <EntityTypeMapping TypeName="DBModel.Keyboard">
+              <MappingFragment StoreEntitySet="Keyboard">
+                <ScalarProperty Name="IdKeyboard" ColumnName="IdKeyboard" />
+                <ScalarProperty Name="NameKeyboard" ColumnName="NameKeyboard" />
+                <ScalarProperty Name="SerialNumberKeyboard" ColumnName="SerialNumberKeyboard" />
+                <ScalarProperty Name="GuaranteeKeyboard" ColumnName="GuaranteeKeyboard" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Microphone">
+            <EntityTypeMapping TypeName="DBModel.Microphone">
+              <MappingFragment StoreEntitySet="Microphone">
+                <ScalarProperty Name="IdMicrophone" ColumnName="IdMicrophone" />
+                <ScalarProperty Name="NameMicrophone" ColumnName="NameMicrophone" />
+                <ScalarProperty Name="SerialNumberMicrophone" ColumnName="SerialNumberMicrophone" />
+                <ScalarProperty Name="GuaranteeMicrophone" ColumnName="GuaranteeMicrophone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Monitor">
+            <EntityTypeMapping TypeName="DBModel.Monitor">
+              <MappingFragment StoreEntitySet="Monitor">
+                <ScalarProperty Name="IdMonitor" ColumnName="IdMonitor" />
+                <ScalarProperty Name="NameMonitor" ColumnName="NameMonitor" />
+                <ScalarProperty Name="SerialNumberMonitor" ColumnName="SerialNumberMonitor" />
+                <ScalarProperty Name="GuaranteeMonitor" ColumnName="GuaranteeMonitor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MotherBoard">
+            <EntityTypeMapping TypeName="DBModel.MotherBoard">
+              <MappingFragment StoreEntitySet="MotherBoard">
+                <ScalarProperty Name="IdMotherBoard" ColumnName="IdMotherBoard" />
+                <ScalarProperty Name="NameMotherBoard" ColumnName="NameMotherBoard" />
+                <ScalarProperty Name="SocketMotherBoard" ColumnName="SocketMotherBoard" />
+                <ScalarProperty Name="SerialNumberMotherBoard" ColumnName="SerialNumberMotherBoard" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OfficeStorage">
+            <EntityTypeMapping TypeName="DBModel.OfficeStorage">
+              <MappingFragment StoreEntitySet="OfficeStorage">
+                <ScalarProperty Name="IdOfficeStorage" ColumnName="IdOfficeStorage" />
+                <ScalarProperty Name="IdComputer" ColumnName="IdComputer" />
+                <ScalarProperty Name="IdStaff" ColumnName="IdStaff" />
+                <ScalarProperty Name="IdKeyboard" ColumnName="IdKeyboard" />
+                <ScalarProperty Name="IdComputerMouse" ColumnName="IdComputerMouse" />
+                <ScalarProperty Name="IdScanner" ColumnName="IdScanner" />
+                <ScalarProperty Name="IdMicrophone" ColumnName="IdMicrophone" />
+                <ScalarProperty Name="IdWebCamera" ColumnName="IdWebCamera" />
+                <ScalarProperty Name="IdMonitor" ColumnName="IdMonitor" />
+                <ScalarProperty Name="IdPrinter" ColumnName="IdPrinter" />
+                <ScalarProperty Name="IdHeadphones" ColumnName="IdHeadphones" />
+                <ScalarProperty Name="IdGarniture" ColumnName="IdGarniture" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PowerSupply">
+            <EntityTypeMapping TypeName="DBModel.PowerSupply">
+              <MappingFragment StoreEntitySet="PowerSupply">
+                <ScalarProperty Name="IdPowerSupply" ColumnName="IdPowerSupply" />
+                <ScalarProperty Name="NamePowerSupply" ColumnName="NamePowerSupply" />
+                <ScalarProperty Name="IdWattage" ColumnName="IdWattage" />
+                <ScalarProperty Name="SerialNumberPowerSupply" ColumnName="SerialNumberPowerSupply" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Printer">
+            <EntityTypeMapping TypeName="DBModel.Printer">
+              <MappingFragment StoreEntitySet="Printer">
+                <ScalarProperty Name="IdPrinter" ColumnName="IdPrinter" />
+                <ScalarProperty Name="NamePrinter" ColumnName="NamePrinter" />
+                <ScalarProperty Name="SerialNumberPrinter" ColumnName="SerialNumberPrinter" />
+                <ScalarProperty Name="GuaranteePrinter" ColumnName="GuaranteePrinter" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RAM">
+            <EntityTypeMapping TypeName="DBModel.RAM">
+              <MappingFragment StoreEntitySet="RAM">
+                <ScalarProperty Name="IdRAM" ColumnName="IdRAM" />
+                <ScalarProperty Name="NameRAM" ColumnName="NameRAM" />
+                <ScalarProperty Name="IdTypeOfRAM" ColumnName="IdTypeOfRAM" />
+                <ScalarProperty Name="SerialNumberRAM" ColumnName="SerialNumberRAM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RAM1">
+            <EntityTypeMapping TypeName="DBModel.RAM1">
+              <MappingFragment StoreEntitySet="RAM1">
+                <ScalarProperty Name="IdRAM1" ColumnName="IdRAM1" />
+                <ScalarProperty Name="IdRAM" ColumnName="IdRAM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RAM2">
+            <EntityTypeMapping TypeName="DBModel.RAM2">
+              <MappingFragment StoreEntitySet="RAM2">
+                <ScalarProperty Name="IdRAM2" ColumnName="IdRAM2" />
+                <ScalarProperty Name="IdRAM" ColumnName="IdRAM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RAM3">
+            <EntityTypeMapping TypeName="DBModel.RAM3">
+              <MappingFragment StoreEntitySet="RAM3">
+                <ScalarProperty Name="IdRAM3" ColumnName="IdRAM3" />
+                <ScalarProperty Name="IdRAM" ColumnName="IdRAM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RAM4">
+            <EntityTypeMapping TypeName="DBModel.RAM4">
+              <MappingFragment StoreEntitySet="RAM4">
+                <ScalarProperty Name="IdRAM4" ColumnName="IdRAM4" />
+                <ScalarProperty Name="IdRAM" ColumnName="IdRAM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="DBModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+                <ScalarProperty Name="NameRole" ColumnName="NameRole" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Scanner">
+            <EntityTypeMapping TypeName="DBModel.Scanner">
+              <MappingFragment StoreEntitySet="Scanner">
+                <ScalarProperty Name="IdScanner" ColumnName="IdScanner" />
+                <ScalarProperty Name="NameScanner" ColumnName="NameScanner" />
+                <ScalarProperty Name="SerialNumberScanner" ColumnName="SerialNumberScanner" />
+                <ScalarProperty Name="GuaranteeScanner" ColumnName="GuaranteeScanner" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SerialNumberRAM">
+            <EntityTypeMapping TypeName="DBModel.SerialNumberRAM">
+              <MappingFragment StoreEntitySet="SerialNumberRAM">
+                <ScalarProperty Name="IdSerialNumberRAM" ColumnName="IdSerialNumberRAM" />
+                <ScalarProperty Name="NameSerialNumberRAM" ColumnName="NameSerialNumberRAM" />
+                <ScalarProperty Name="IdRAM" ColumnName="IdRAM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SSD">
+            <EntityTypeMapping TypeName="DBModel.SSD">
+              <MappingFragment StoreEntitySet="SSD">
+                <ScalarProperty Name="IdSSD" ColumnName="IdSSD" />
+                <ScalarProperty Name="NameSSD" ColumnName="NameSSD" />
+                <ScalarProperty Name="IdDigitalStorageCapacitySSD" ColumnName="IdDigitalStorageCapacitySSD" />
+                <ScalarProperty Name="QuantitySSD" ColumnName="QuantitySSD" />
+                <ScalarProperty Name="SerialNumberSSD" ColumnName="SerialNumberSSD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Staff">
+            <EntityTypeMapping TypeName="DBModel.Staff">
+              <MappingFragment StoreEntitySet="Staff">
+                <ScalarProperty Name="IdStaff" ColumnName="IdStaff" />
+                <ScalarProperty Name="LastNameStaff" ColumnName="LastNameStaff" />
+                <ScalarProperty Name="FirstNameStaff" ColumnName="FirstNameStaff" />
+                <ScalarProperty Name="MiddleNameStaff" ColumnName="MiddleNameStaff" />
+                <ScalarProperty Name="PhoneNumberStaff" ColumnName="PhoneNumberStaff" />
+                <ScalarProperty Name="EmailStaff" ColumnName="EmailStaff" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DBModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeOfCPUСooling">
+            <EntityTypeMapping TypeName="DBModel.TypeOfCPUСooling">
+              <MappingFragment StoreEntitySet="TypeOfCPUСooling">
+                <ScalarProperty Name="IdTypeOfCPUСooling" ColumnName="IdTypeOfCPUСooling" />
+                <ScalarProperty Name="NameTypeOfCPUСooling" ColumnName="NameTypeOfCPUСooling" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeOfRAM">
+            <EntityTypeMapping TypeName="DBModel.TypeOfRAM">
+              <MappingFragment StoreEntitySet="TypeOfRAM">
+                <ScalarProperty Name="IdTypeOfRAM" ColumnName="IdTypeOfRAM" />
+                <ScalarProperty Name="NameTypeOfRAM" ColumnName="NameTypeOfRAM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="DBModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="LoginUser" ColumnName="LoginUser" />
+                <ScalarProperty Name="PasswordUser" ColumnName="PasswordUser" />
+                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wattage">
+            <EntityTypeMapping TypeName="DBModel.Wattage">
+              <MappingFragment StoreEntitySet="Wattage">
+                <ScalarProperty Name="IdWattage" ColumnName="IdWattage" />
+                <ScalarProperty Name="NameWattage" ColumnName="NameWattage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WebCamera">
+            <EntityTypeMapping TypeName="DBModel.WebCamera">
+              <MappingFragment StoreEntitySet="WebCamera">
+                <ScalarProperty Name="IdWebCamera" ColumnName="IdWebCamera" />
+                <ScalarProperty Name="NameWebCamera" ColumnName="NameWebCamera" />
+                <ScalarProperty Name="SerialNumberWebCamera" ColumnName="SerialNumberWebCamera" />
+                <ScalarProperty Name="GuaranteeWebCamera" ColumnName="GuaranteeWebCamera" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

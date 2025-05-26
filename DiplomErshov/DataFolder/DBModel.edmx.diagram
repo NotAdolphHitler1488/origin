@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9e0f8f0a741445cc9fbdc1fe7122b205" Name="Diagram1">
+        <EntityTypeShape EntityType="DBModel.Computer" Width="1.5" PointX="7.5" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.ComputerCase" Width="1.5" PointX="5.25" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.ComputerMouse" Width="1.5" PointX="7.5" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.CPU" Width="1.5" PointX="5.25" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.CPUСooling" Width="1.5" PointX="5.25" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.DigitalStorageCapacityHDD" Width="1.5" PointX="3" PointY="25.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.DigitalStorageCapacitySSD" Width="1.5" PointX="3" PointY="34" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Garniture" Width="1.5" PointX="7.5" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.GPU" Width="1.5" PointX="5.25" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.HDD" Width="1.5" PointX="5.25" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Headphones" Width="1.5" PointX="7.5" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Keyboard" Width="1.5" PointX="7.5" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Microphone" Width="1.5" PointX="7.5" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Monitor" Width="1.5" PointX="7.5" PointY="26.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.MotherBoard" Width="1.5" PointX="5.25" PointY="27.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.OfficeStorage" Width="1.5" PointX="9.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.PowerSupply" Width="1.5" PointX="5.25" PointY="30.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Printer" Width="1.5" PointX="7.5" PointY="29.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.RAM" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.RAM1" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.RAM2" Width="1.5" PointX="5.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.RAM3" Width="1.5" PointX="5.25" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.RAM4" Width="1.5" PointX="5.25" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Role" Width="1.5" PointX="3" PointY="37.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Scanner" Width="1.5" PointX="7.5" PointY="32.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.SerialNumberRAM" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.SSD" Width="1.5" PointX="5.25" PointY="33.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Staff" Width="1.5" PointX="7.5" PointY="37.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.TypeOfCPUСooling" Width="1.5" PointX="3" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.TypeOfRAM" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.User" Width="1.5" PointX="5.25" PointY="37.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Wattage" Width="1.5" PointX="3" PointY="30.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.WebCamera" Width="1.5" PointX="7.5" PointY="40.625" IsExpanded="true" />
+        <AssociationConnector Association="DBModel.FK_Computer_ComputerCase" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Computer_CPU" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Computer_CPUСooling" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Computer_GPU" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Computer_HDD" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Computer_MotherBoard" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Computer_PowerSupply" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Computer_RAM1" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Computer_RAM2" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Computer_RAM3" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Computer_RAM4" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Computer_SSD" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_OfficeStorage_Computer" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_OfficeStorage_ComputerMouse" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_CPUСooling_TypeOfCPUСooling" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_HDD_DigitalStorageCapacityHDD" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_SSD_DigitalStorageCapacitySSD" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_OfficeStorage_Garniture" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_OfficeStorage_Headphones" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_OfficeStorage_Keyboard" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_OfficeStorage_Microphone" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_OfficeStorage_Monitor" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_OfficeStorage_Printer" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_OfficeStorage_Scanner" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_OfficeStorage_Staff" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_OfficeStorage_WebCamera" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_PowerSupply_Wattage" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_RAM_TypeOfRAM" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_RAM1_RAM" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_RAM2_RAM" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_RAM3_RAM" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_RAM4_RAM" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_User_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Staff_User" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
