@@ -1,39 +1,50 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.Win32;
+using System;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using DiplomErshov.ClassFolder;
 using DiplomErshov.DataFolder;
-using DiplomErshov.PageFolder.EmployeePageFolder.ComputerComponentsFolder.CPUCoolingFolder;
 
 namespace DiplomErshov.PageFolder.DirectorPageFolder
 {
-    /// <summary>
-    /// Логика взаимодействия для DirectorEditPage.xaml
-    /// </summary>
     public partial class DirectorEditPage : Page
     {
         private Staff originalStaff;
+
         public DirectorEditPage(Staff staff)
         {
             InitializeComponent();
+
             DBEntities.nullContext();
-            DBEntities.nullContext(); originalStaff = DBEntities.GetContext().Staff
-                .FirstOrDefault(u => u.IdStaff == staff.IdStaff);
-            DataContext = staff;
-            this.originalStaff.IdStaff = staff.IdStaff;
+            originalStaff = DBEntities.GetContext()
+                                      .Staff
+                                      .FirstOrDefault(u => u.IdStaff == staff.IdStaff);
+
+            DataContext = originalStaff;
             UserCb.ItemsSource = DBEntities.GetContext()
-                .User.ToList();
+                                           .User
+                                           .ToList();
+        }
+
+        private void ChangePhotoBtn_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog
+            {
+                Filter = "Изображения|*.jpg;*.jpeg;*.png;*.bmp",
+                Title = "Выберите фото сотрудника"
+            };
+
+            if (dlg.ShowDialog() == true)
+            {
+                byte[] bytes = File.ReadAllBytes(dlg.FileName);
+                originalStaff.photoUser = bytes;
+
+                // Обновить превью
+                PhotoPreview.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri(dlg.FileName));
+            }
         }
 
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
@@ -42,60 +53,55 @@ namespace DiplomErshov.PageFolder.DirectorPageFolder
             {
                 MBClass.ErrorMB("Пожалуйста, введите фамилию");
                 LastNameTB.Focus();
+                return;
             }
-
-            else if (string.IsNullOrWhiteSpace(FirstNameTB.Text))
+            if (string.IsNullOrWhiteSpace(FirstNameTB.Text))
             {
                 MBClass.ErrorMB("Пожалуйста, введите имя");
                 FirstNameTB.Focus();
+                return;
             }
-
-            else if (string.IsNullOrWhiteSpace(PhoneTB.Text))
+            if (string.IsNullOrWhiteSpace(PhoneTB.Text))
             {
                 MBClass.ErrorMB("Пожалуйста, введите номер телефона");
                 PhoneTB.Focus();
+                return;
             }
-
-            else if (string.IsNullOrWhiteSpace(EmailTB.Text))
+            if (string.IsNullOrWhiteSpace(EmailTB.Text))
             {
                 MBClass.ErrorMB("Пожалуйста, введите электронную почту");
                 EmailTB.Focus();
+                return;
             }
-
-            else if (string.IsNullOrWhiteSpace(UserCb.Text))
+            if (string.IsNullOrWhiteSpace(UserCb.Text))
             {
-                MBClass.ErrorMB("Пожалуйста, выберете привязку к пользователю");
+                MBClass.ErrorMB("Пожалуйста, выберите привязку к пользователю");
                 UserCb.Focus();
+                return;
             }
 
-            else
+            try
             {
-                try
-                {
-                    originalStaff = DBEntities.GetContext().Staff
-                        .FirstOrDefault(u => u.IdStaff == originalStaff.IdStaff);
-                    originalStaff.LastNameStaff = LastNameTB.Text;
-                    originalStaff.FirstNameStaff = FirstNameTB.Text;
-                    originalStaff.MiddleNameStaff = MiddleNameTB.Text;
-                    originalStaff.PhoneNumberStaff = PhoneTB.Text;
-                    originalStaff.EmailStaff = EmailTB.Text;
-                    originalStaff.IdUser = Int32.Parse(
-                        UserCb.SelectedValue.ToString());
-                    DBEntities.GetContext().SaveChanges();
-                    MBClass.InformationMB("Данные успешно отредактированы");
-                    NavigationService.Navigate(new DirectorListPage());
-                }
-                catch (Exception ex)
-                {
-                    MBClass.ErrorMB(ex);
-                    throw;
-                }
+                originalStaff.LastNameStaff = LastNameTB.Text;
+                originalStaff.FirstNameStaff = FirstNameTB.Text;
+                originalStaff.MiddleNameStaff = MiddleNameTB.Text;
+                originalStaff.PhoneNumberStaff = PhoneTB.Text;
+                originalStaff.EmailStaff = EmailTB.Text;
+                originalStaff.IdUser = int.Parse(UserCb.SelectedValue.ToString());
+
+                DBEntities.GetContext().SaveChanges();
+                MBClass.InformationMB("Данные успешно отредактированы");
+                NavigationService.Navigate(new DirectorListPage());
+            }
+            catch (Exception ex)
+            {
+                MBClass.ErrorMB(ex);
             }
         }
 
         private void Back_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            NavigationService.Navigate(new PageFolder.DirectorPageFolder.DirectorListPage());
+            NavigationService.Navigate(new DirectorListPage());
         }
     }
 }

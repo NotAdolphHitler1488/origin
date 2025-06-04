@@ -1,10 +1,10 @@
-﻿<Page x:Class="DiplomErshov.PageFolder.EmployeePageFolder.OfficeStorageFolder.OfficeStorageListPage"
+﻿<Page x:Class="DiplomErshov.PageFolder.EmployeePageFolder.EmployeeComputersFolder.EmployeeComputersListPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-      xmlns:local="clr-namespace:DiplomErshov.PageFolder.EmployeePageFolder.OfficeStorageFolder"
+      xmlns:local="clr-namespace:DiplomErshov.PageFolder.EmployeePageFolder.ComputersFolder"
       mc:Ignorable="d"
       d:DesignHeight="649"
       d:DesignWidth="824"
@@ -12,8 +12,8 @@
       MinHeight="649"
       MaxWidth="824"
       MinWidth="824"
-      Title="OfficeStorageListPage"
-      >
+      Title="EmployeeComputersListPage"
+      Background="#FF1F304A">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -25,54 +25,14 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <!-- PopupBox с троеточием (меню) -->
-        <materialDesign:PopupBox
-Background="White"
-Foreground="White" 
-Margin="73,0,0,0"
-StaysOpen="False"
->
-            <StackPanel Width="auto">
-                <Button x:Name="ListComputerMouseBtn"
-            Content="Список комп. мышей"
-            Click="ListComputerMouseBtn_Click"/>
-                <Button x:Name="ListGarnitureCoolingBtn"
-            Content="Список гарнитур"
-            Click="ListGarnitureCoolingBtn_Click"/>
-                <Button x:Name="ListHeadphonesBtn"
-            Content="Список наушников"
-            Click="ListHeadphonesBtn_Click"/>
-                <Button x:Name="ListKeyboardBtn"
-            Content="Список клавиатур"
-            Click="ListKeyboardBtn_Click"/>
-                <Button x:Name="ListMicrophoneBtn"
-            Content="Список микрофонов"
-            Click="ListMicrophoneBtn_Click"/>
-                <Button x:Name="ListMonitorBtn"
-            Content="Список мониторов"
-            Click="ListMonitorBtn_Click"/>
-                <Button x:Name="ListPrinterBtn"
-            Content="Список принтеров"
-            Click="ListPrinterBtn_Click"/>
-                <Button x:Name="ListScannerBtn"
-            Content="Список сканеров"
-            Click="ListScannerBtn_Click"/>
-                <Button x:Name="ListWebCameraBtn"
-            Content="Список вебкамер"
-            Click="ListWebCameraBtn_Click"/>
-            </StackPanel>
-        </materialDesign:PopupBox>
-
-        <!-- Иконка "Плюс" для добавления -->
+        <!-- Иконка "Плюс" скрыта для сотрудников -->
         <materialDesign:PackIcon x:Name="Plus"
                                  Kind="Plus"
                                  Style="{StaticResource MenuPlusIcon}"
-                                 Grid.Row="0"
+                                 Visibility="Collapsed"
                                  Grid.Column="1"
                                  Margin="567,0,0,0"
-                                 VerticalAlignment="Center"
-                                 MouseLeftButtonDown="Plus_MouseLeftButtonDown"
-                                 ToolTip="Добавить рабочее место"/>
+                                 VerticalAlignment="Center"/>
 
         <!-- Поисковая иконка -->
         <Image Source="/ResourceFolder/ImageFolder/SearchIcon.png"
@@ -81,10 +41,8 @@ StaysOpen="False"
                Margin="121,22,7,22"
                VerticalAlignment="Center"/>
 
-        <!-- Поле поиска (не изменялось) -->
+        <!-- Поисковое поле -->
         <TextBox x:Name="SearchTb"
-                 Grid.Row="0"
-                 Grid.Column="0"
                  Grid.ColumnSpan="2"
                  Margin="0"
                  Width="600"
@@ -109,7 +67,6 @@ StaysOpen="False"
                                     <ColumnDefinition/>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
-
                                 <Label x:Name="SearchNx"
                                        Content="Поиск"
                                        Style="{DynamicResource NormalLabelStyle}"
@@ -117,7 +74,6 @@ StaysOpen="False"
                                        FontSize="15"
                                        Foreground="LightGray"
                                        Grid.Column="2"/>
-
                                 <ScrollViewer x:Name="PART_ContentHost"
                                               Focusable="False"
                                               HorizontalScrollBarVisibility="Hidden"
@@ -140,7 +96,7 @@ StaysOpen="False"
             </TextBox.Template>
         </TextBox>
 
-        <!-- Список рабочих мест: Expander-элементы -->
+        <!-- Список компьютеров для сотрудников -->
         <ScrollViewer Grid.Row="1"
                       Grid.ColumnSpan="2"
                       VerticalScrollBarVisibility="Auto"
@@ -149,3 +105,4 @@ StaysOpen="False"
         </ScrollViewer>
     </Grid>
 </Page>
+

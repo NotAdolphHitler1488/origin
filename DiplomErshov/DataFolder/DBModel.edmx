@@ -263,6 +263,7 @@
           <Property Name="PhoneNumberStaff" Type="nvarchar" MaxLength="19" Nullable="false" />
           <Property Name="EmailStaff" Type="nvarchar" MaxLength="60" Nullable="false" />
           <Property Name="IdUser" Type="int" Nullable="false" />
+          <Property Name="photoUser" Type="image" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -296,6 +297,19 @@
           <Property Name="LoginUser" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="PasswordUser" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="IdRole" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserAudit">
+          <Key>
+            <PropertyRef Name="AuditId" />
+          </Key>
+          <Property Name="AuditId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdUser" Type="int" />
+          <Property Name="LoginUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="PasswordUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="IdRole" Type="int" />
+          <Property Name="Action" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ChangedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ChangeDate" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Wattage">
           <Key>
@@ -754,6 +768,7 @@
           <EntitySet Name="TypeOfCPUСooling" EntityType="Self.TypeOfCPUСooling" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TypeOfRAM" EntityType="Self.TypeOfRAM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserAudit" EntityType="Self.UserAudit" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Wattage" EntityType="Self.Wattage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WebCamera" EntityType="Self.WebCamera" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Computer_ComputerCase" Association="Self.FK_Computer_ComputerCase">
@@ -1216,6 +1231,7 @@
           <Property Name="PhoneNumberStaff" Type="String" MaxLength="19" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="EmailStaff" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IdUser" Type="Int32" Nullable="false" />
+          <Property Name="photoUser" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="OfficeStorage" Relationship="Self.FK_OfficeStorage_Staff" FromRole="Staff" ToRole="OfficeStorage" />
           <NavigationProperty Name="User" Relationship="Self.FK_Staff_User" FromRole="Staff" ToRole="User" />
         </EntityType>
@@ -1255,6 +1271,19 @@
           <Property Name="IdRole" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
           <NavigationProperty Name="Staff" Relationship="Self.FK_Staff_User" FromRole="User" ToRole="Staff" />
+        </EntityType>
+        <EntityType Name="UserAudit">
+          <Key>
+            <PropertyRef Name="AuditId" />
+          </Key>
+          <Property Name="AuditId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUser" Type="Int32" />
+          <Property Name="LoginUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdRole" Type="Int32" />
+          <Property Name="Action" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ChangedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeDate" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <EntityType Name="Wattage">
           <Key>
@@ -1715,6 +1744,7 @@
           <EntitySet Name="TypeOfCPUСooling" EntityType="Self.TypeOfCPUСooling" />
           <EntitySet Name="TypeOfRAM" EntityType="Self.TypeOfRAM" />
           <EntitySet Name="User" EntityType="Self.User" />
+          <EntitySet Name="UserAudit" EntityType="Self.UserAudit" />
           <EntitySet Name="Wattage" EntityType="Self.Wattage" />
           <EntitySet Name="WebCamera" EntityType="Self.WebCamera" />
           <AssociationSet Name="FK_Computer_ComputerCase" Association="Self.FK_Computer_ComputerCase">
@@ -2144,6 +2174,7 @@
                 <ScalarProperty Name="PhoneNumberStaff" ColumnName="PhoneNumberStaff" />
                 <ScalarProperty Name="EmailStaff" ColumnName="EmailStaff" />
                 <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="photoUser" ColumnName="photoUser" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2181,6 +2212,20 @@
                 <ScalarProperty Name="LoginUser" ColumnName="LoginUser" />
                 <ScalarProperty Name="PasswordUser" ColumnName="PasswordUser" />
                 <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserAudit">
+            <EntityTypeMapping TypeName="DBModel.UserAudit">
+              <MappingFragment StoreEntitySet="UserAudit">
+                <ScalarProperty Name="AuditId" ColumnName="AuditId" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="LoginUser" ColumnName="LoginUser" />
+                <ScalarProperty Name="PasswordUser" ColumnName="PasswordUser" />
+                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+                <ScalarProperty Name="ChangeDate" ColumnName="ChangeDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -1,0 +1,162 @@
+﻿<Page x:Class="DiplomErshov.PageFolder.DirectorPageFolder.DirectorDetailsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:conv="clr-namespace:DiplomErshov.Converters"
+      xmlns:local="clr-namespace:DiplomErshov.PageFolder.DirectorPageFolder"
+      mc:Ignorable="d"
+      d:DesignHeight="649"
+      d:DesignWidth="824"
+      MaxHeight="649"
+      MinHeight="649"
+      MaxWidth="824"
+      MinWidth="824"
+      Title="DirectorDetailsPage"
+      Background="#FF1F304A">
+
+    <Page.Resources>
+        <conv:ByteArrayToImageConverter x:Key="ByteArrayToImageConverter"/>
+    </Page.Resources>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Margin="16">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Margin="0,0,0,16">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <materialDesign:PackIcon x:Name="BackIcon"
+                                         Kind="ArrowBack"
+                                         Style="{StaticResource MenuIcon}"
+                                         Cursor="Hand"
+                                         MouseLeftButtonDown="Back_MouseLeftButtonDown"
+                                         VerticalAlignment="Center"
+                                         Margin="0,0,10,0"/>
+
+                <TextBlock Grid.Column="1"
+                           FontFamily="Arial"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           Foreground="White"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center">
+                    <Run Text="Информация о сотруднике"/>
+                </TextBlock>
+
+                <Button Grid.Column="2"
+                        x:Name="EditBtn"
+                        Width="40"
+                        Height="40"
+                        Background="#FF2A3C5E"
+                        BorderBrush="White"
+                        BorderThickness="1"
+                        Cursor="Hand"
+                        Click="EditBtn_Click">
+                    <materialDesign:PackIcon Kind="Pencil"
+                                             Width="20"
+                                             Height="20"
+                                             Foreground="White"/>
+                </Button>
+            </Grid>
+
+            <Grid Grid.Row="1" Margin="0,0,0,16">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+
+                <Ellipse Grid.Column="0"
+                         Width="180"
+                         Height="180"
+                         Stroke="#FF5A5A5A"
+                         StrokeThickness="2"
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Top">
+                    <Ellipse.Fill>
+                        <ImageBrush
+                            ImageSource="{Binding photoUser, Converter={StaticResource ByteArrayToImageConverter}}"
+                            Stretch="UniformToFill"/>
+                    </Ellipse.Fill>
+                </Ellipse>
+
+                <TextBlock Grid.Column="1"
+                           FontFamily="Arial"
+                           FontSize="22"
+                           FontWeight="Bold"
+                           Foreground="White"
+                           VerticalAlignment="Center"
+                           TextAlignment="Left">
+                    <Run Text="{Binding LastNameStaff}"/>
+                    <Run Text=" "/>
+                    <Run Text="{Binding FirstNameStaff}"/>
+                    <Run Text=" "/>
+                    <Run Text="{Binding MiddleNameStaff}"/>
+                </TextBlock>
+            </Grid>
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+
+                <materialDesign:Card Grid.Column="0"
+                                     Background="#FF2E3C5E"
+                                     Padding="16"
+                                     Margin="0,0,16,0">
+                    <StackPanel>
+                        <TextBlock Text="Личные данные"
+                                   Foreground="#FF80CBC4"
+                                   FontFamily="Arial"
+                                   FontSize="18"
+                                   FontWeight="Bold"
+                                   Margin="0,0,0,8"/>
+                        <TextBlock Text="Телефон:" Foreground="#FFCCCCCC" FontSize="14"/>
+                        <TextBlock Text="{Binding PhoneNumberStaff}"
+                                   Foreground="White"
+                                   FontSize="14"
+                                   Margin="0,0,0,8"/>
+
+                        <TextBlock Text="Email:" Foreground="#FFCCCCCC" FontSize="14"/>
+                        <TextBlock Text="{Binding EmailStaff}"
+                                   Foreground="White"
+                                   FontSize="14"/>
+                    </StackPanel>
+                </materialDesign:Card>
+
+                <materialDesign:Card Grid.Column="1"
+                                     Background="#FF2E3C5E"
+                                     Padding="16">
+                    <StackPanel>
+                        <TextBlock Text="Рабочие данные"
+                                   Foreground="#FFCFD867"
+                                   FontFamily="Arial"
+                                   FontSize="18"
+                                   FontWeight="Bold"
+                                   Margin="0,0,0,8"/>
+                        <TextBlock Text="ID сотрудника:" Foreground="#FFCCCCCC" FontSize="14"/>
+                        <TextBlock Text="{Binding IdStaff}"
+                                   Foreground="White"
+                                   FontSize="14"
+                                   Margin="0,0,0,8"/>
+
+                        <TextBlock Text="Логин аккаунта:" Foreground="#FFCCCCCC" FontSize="14"/>
+                        <TextBlock Text="{Binding User.LoginUser}"
+                                   Foreground="White"
+                                   FontSize="14"/>
+                    </StackPanel>
+                </materialDesign:Card>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</Page>

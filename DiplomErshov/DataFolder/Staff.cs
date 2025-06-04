@@ -27,6 +27,7 @@ namespace DiplomErshov.DataFolder
         public string PhoneNumberStaff { get; set; }
         public string EmailStaff { get; set; }
         public int IdUser { get; set; }
+        public byte[] photoUser { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OfficeStorage> OfficeStorage { get; set; }

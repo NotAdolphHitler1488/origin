@@ -54,6 +54,7 @@ namespace DiplomErshov.PageFolder.EmployeePageFolder.ComputersFolder
                 .PowerSupply.ToList();
         }
 
+
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
             var checkSerialNumberComputer = DBEntities.GetContext()

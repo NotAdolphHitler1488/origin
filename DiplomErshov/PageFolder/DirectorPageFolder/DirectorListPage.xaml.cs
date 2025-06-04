@@ -1,84 +1,90 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using DiplomErshov.ClassFolder;
 using DiplomErshov.DataFolder;
-using DiplomErshov.PageFolder.EmployeePageFolder.ComputerComponentsFolder.ComputerCaseFolder;
 
 namespace DiplomErshov.PageFolder.DirectorPageFolder
 {
-    /// <summary>
-    /// Логика взаимодействия для DirectorListPage.xaml
-    /// </summary>
     public partial class DirectorListPage : Page
     {
         public DirectorListPage()
         {
             InitializeComponent();
-            ListDirDG.ItemsSource = DBEntities.GetContext().Staff.ToList()
-                .OrderBy(c => c.IdStaff);
+            ListDirDG.ItemsSource = DBEntities.GetContext()
+                                              .Staff
+                                              .ToList()
+                                              .OrderBy(c => c.IdStaff);
         }
 
         private void Del_Click(object sender, RoutedEventArgs e)
         {
             Staff staff = ListDirDG.SelectedItem as Staff;
-            if (ListDirDG.SelectedItem == null)
+            if (staff == null)
             {
-                MBClass.ErrorMB("Выберите сотрудника" +
-                    " для удаления");
+                MBClass.ErrorMB("Выберите сотрудника для удаления");
+                return;
             }
-            else
-            {
-                if (MBClass.QestionMB("Удалить " +
-                    $"сотрудника с фамилией " +
-                    $"{staff.LastNameStaff}?"))
-                {
-                    DBEntities.GetContext().Staff
-                        .Remove(ListDirDG.SelectedItem as Staff);
-                    DBEntities.GetContext().SaveChanges();
 
-                    MBClass.InformationMB("Сотрудник удален");
-                    ListDirDG.ItemsSource = DBEntities.GetContext()
-                        .Staff.ToList().OrderBy(u => u.LastNameStaff);
-                }
+            if (!MBClass.QestionMB($"Удалить сотрудника с фамилией {staff.LastNameStaff}?"))
+                return;
+
+            try
+            {
+                DBEntities.GetContext().Staff.Remove(staff);
+                DBEntities.GetContext().SaveChanges();
+
+                MBClass.InformationMB("Сотрудник удален");
+                ListDirDG.ItemsSource = DBEntities.GetContext()
+                                                  .Staff
+                                                  .ToList()
+                                                  .OrderBy(u => u.LastNameStaff);
+            }
+            catch
+            {
+                MBClass.ErrorMB("Невозможно удалить сотрудника, так как он закреплен за рабочим местом.\n" +
+                                "Сначала отвяжите сотрудника от рабочего места.");
             }
         }
 
+
         private void Red_Click(object sender, RoutedEventArgs e)
         {
-            if (ListDirDG.SelectedItem == null)
+            Staff staff = ListDirDG.SelectedItem as Staff;
+            if (staff == null)
             {
-                MBClass.ErrorMB("Выберите " +
-                    "сотрудника для редактирования");
+                MBClass.ErrorMB("Выберите сотрудника для редактирования");
+                return;
             }
-            else
+
+            NavigationService.Navigate(new DirectorEditPage(staff));
+        }
+
+        private void Details_Click(object sender, RoutedEventArgs e)
+        {
+            Staff staff = ListDirDG.SelectedItem as Staff;
+            if (staff == null)
             {
-                NavigationService.Navigate(
-                    new DirectorEditPage(ListDirDG.SelectedItem as Staff));
+                MBClass.ErrorMB("Выберите сотрудника для просмотра");
+                return;
             }
+
+            NavigationService.Navigate(new DirectorDetailsPage(staff));
         }
 
         private void SearchTb_TextChanged(object sender, TextChangedEventArgs e)
         {
             ListDirDG.ItemsSource = DBEntities.GetContext()
-                .Staff.Where(u => u.LastNameStaff.StartsWith(SearchTb.Text))
-                .ToList().OrderBy(u => u.LastNameStaff);
+                                              .Staff
+                                              .Where(u => u.LastNameStaff.StartsWith(SearchTb.Text))
+                                              .ToList()
+                                              .OrderBy(u => u.LastNameStaff);
         }
 
         private void Plus_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            NavigationService.Navigate(new PageFolder.DirectorPageFolder.DirectorAddPage());
+            NavigationService.Navigate(new DirectorAddPage());
         }
     }
 }

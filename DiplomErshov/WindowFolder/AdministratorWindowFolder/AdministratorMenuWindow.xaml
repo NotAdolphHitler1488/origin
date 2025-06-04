@@ -67,6 +67,24 @@
                     </StackPanel>
                 </Grid>
             </Button>
+            <Button x:Name="AuditLogBtn"
+        Style="{StaticResource MenuButton}"
+        Margin="10,218,865,327"
+        Click="AuditLogBtn_Click">
+                <Grid>
+                    <StackPanel Orientation="Horizontal" Margin="-24,-22,-50,-22">
+                        <Image Height="23" Source="/ResourceFolder/ImageFolder/AuditIcon.png"/>
+                        <TextBlock Text="Журнал аудита"
+                       TextWrapping="Wrap"
+                       Width="85"
+                       FontFamily="Arial"
+                       FontSize="12"
+                       Height="26"
+                       Margin="3 10 10 10"/>
+                    </StackPanel>
+                </Grid>
+            </Button>
+
 
             <Button x:Name="ChangeUser"
         Style="{StaticResource MenuButton}"

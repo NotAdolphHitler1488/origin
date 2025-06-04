@@ -57,6 +57,7 @@ namespace DiplomErshov.DataFolder
         public virtual DbSet<TypeOfCPUСooling> TypeOfCPUСooling { get; set; }
         public virtual DbSet<TypeOfRAM> TypeOfRAM { get; set; }
         public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<UserAudit> UserAudit { get; set; }
         public virtual DbSet<Wattage> Wattage { get; set; }
         public virtual DbSet<WebCamera> WebCamera { get; set; }
     }

@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using DiplomErshov.ClassFolder;
 using DiplomErshov.PageFolder.AdministratorPageFolder;
-using DiplomErshov.PageFolder.EmployeePageFolder.ComputersFolder;
+using DiplomErshov.PageFolder.EmployeePageFolder.EmployeeComputersFolder;
 using DiplomErshov.PageFolder.EmployeePageFolder.OfficeStorageFolder;
 
 namespace DiplomErshov.WindowFolder.EmployeeWindowFolder
@@ -68,7 +68,7 @@ namespace DiplomErshov.WindowFolder.EmployeeWindowFolder
 
         private void ListComp_Click(object sender, RoutedEventArgs e)
         {
-            MaiFrame.Navigate(new ComputersListPage());
+            MaiFrame.Navigate(new EmployeeComputersListPage());
         }
 
         private void ListPer_Click(object sender, RoutedEventArgs e)

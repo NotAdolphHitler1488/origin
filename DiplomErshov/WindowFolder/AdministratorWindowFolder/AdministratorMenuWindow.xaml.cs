@@ -27,6 +27,10 @@ namespace DiplomErshov.WindowFolder.AdministratorWindowFolder
             InitializeComponent();
             MaiFrame.Navigate(new PageFolder.AdministratorPageFolder.AdministratorListPage());
         }
+        private void AuditLogBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MaiFrame.Navigate(new PageFolder.AdministratorPageFolder.AuditPage());
+        }
 
         private void Window_StateChanged(object sender, EventArgs e)
         {

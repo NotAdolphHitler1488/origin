@@ -1,15 +1,15 @@
 ﻿<Page x:Class="DiplomErshov.PageFolder.EmployeePageFolder.ComputersFolder.ComputersListPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:DiplomErshov.PageFolder.EmployeePageFolder.ComputersFolder"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-      mc:Ignorable="d" 
+      xmlns:local="clr-namespace:DiplomErshov.PageFolder.EmployeePageFolder.ComputersFolder"
+      mc:Ignorable="d"
       d:DesignHeight="649"
+      d:DesignWidth="824"
       MaxHeight="649"
       MinHeight="649"
-      d:DesignWidth="824"
       MaxWidth="824"
       MinWidth="824"
       Title="ComputersListPage">
@@ -24,34 +24,104 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
+        <!-- Иконка "Plus" -->
         <materialDesign:PackIcon x:Name="Plus"
-                             Kind="Plus"
-                             Style="{StaticResource MenuPlusIcon}" 
-                             Grid.Column="1" 
-                             Margin="567,0,0,0" 
-                             VerticalAlignment="Center"
-                             MouseLeftButtonDown="Plus_MouseLeftButtonDown"/>
+                                 Kind="Plus"
+                                 Style="{StaticResource MenuPlusIcon}"
+                                 Grid.Row="0"
+                                 Grid.Column="1"
+                                 Margin="567,0,0,0"
+                                 VerticalAlignment="Center"
+                                 MouseLeftButtonDown="Plus_MouseLeftButtonDown"
+                                 ToolTip="Добавить компьютер"/>
 
+        <!-- PopupBox с тремя точками -->
+        <materialDesign:PopupBox Grid.Row="0"
+                                 Grid.Column="0"
+                                 VerticalAlignment="Center"
+                                 HorizontalAlignment="Left"
+                                 Margin="10,0,0,0"
+                                 StaysOpen="False"
+                                 Background="Transparent">
+            <materialDesign:PopupBox.ToggleContent>
+                <materialDesign:PackIcon Kind="DotsVertical"
+                                         Foreground="White"
+                                         Margin="73,0,0,0"
+
+                                         Width="24"
+                                         Height="24"
+                                         Cursor="Hand"/>
+            </materialDesign:PopupBox.ToggleContent>
+            <materialDesign:PopupBox.PopupContent>
+                <StackPanel Width="auto">
+                    <Button x:Name="ListCPUBtn"
+                            Content="Список процессоров"
+                            Click="ListCPUBtn_Click"/>
+                    <Button x:Name="ListCPUCoolingBtn"
+                            Content="Список охлаждения для процессора"
+                            Click="ListCPUCoolingBtn_Click"/>
+                    <Button x:Name="ListGPUBtn"
+                            Content="Список видеокарт"
+                            Click="ListGPUBtn_Click"/>
+                    <Button x:Name="ListHDDBtn"
+                            Content="Список жестких дисков"
+                            Click="ListHDDBtn_Click"/>
+                    <Button x:Name="ListMotherBoardBtn"
+                            Content="Список мат. плат"
+                            Click="ListMotherBoardBtn_Click"/>
+                    <Button x:Name="ListComputerCaseBtn"
+                            Content="Список корпусов"
+                            Click="ListComputerCaseBtn_Click"/>
+                    <Button x:Name="ListPowerSupplyBtn"
+                            Content="Список блоков питания"
+                            Click="ListPowerSupplyBtn_Click"/>
+                    <Button x:Name="ListRAM1Btn"
+                            Content="Список ОЗУ в первый слот"
+                            Click="ListRAM1Btn_Click"/>
+                    <Button x:Name="ListRAM2Btn"
+                            Content="Список ОЗУ во второй слот"
+                            Click="ListRAM2Btn_Click"/>
+                    <Button x:Name="ListRAM3Btn"
+                            Content="Список ОЗУ в третий слот"
+                            Click="ListRAM3Btn_Click"/>
+                    <Button x:Name="ListRAM4Btn"
+                            Content="Список ОЗУ в четвертый слот"
+                            Click="ListRAM4Btn_Click"/>
+                    <Button x:Name="ListRAMBtn"
+                            Content="Список ОЗУ"
+                            Click="ListRAMBtn_Click"/>
+                    <Button x:Name="ListSSDBtn"
+                            Content="Список твердотельных накопителей"
+                            Click="ListSSDBtn_Click"/>
+                </StackPanel>
+            </materialDesign:PopupBox.PopupContent>
+        </materialDesign:PopupBox>
+
+        <!-- Иконка поиска -->
         <Image Source="/ResourceFolder/ImageFolder/SearchIcon.png"
-               Height="20" 
-               Margin="121,22,7,22"/>
+       Height="20"
+       Width="20"
+       Margin="121,22,7,22"
+       VerticalAlignment="Center"/>
 
         <TextBox x:Name="SearchTb"
-     Style="{DynamicResource Search}"
-     TextChanged="SearchTb_TextChanged"
-     Grid.ColumnSpan="2"
-             Margin="0, 0, 0, 0"
-     Width="600"
-     Height="30"
-     Padding="4,0"
-     FontSize="18">
+         Grid.ColumnSpan="2"
+         Margin="0"
+         Width="600"
+         Height="30"
+         Padding="4,0"
+         FontSize="18"
+         Style="{DynamicResource Search}"
+         TextChanged="SearchTb_TextChanged"
+         FontFamily="Segoe UI"
+         Foreground="White">
             <TextBox.Template>
                 <ControlTemplate TargetType="TextBox">
                     <Grid>
                         <Border CornerRadius="5"
-                Background="Transparent"
-                BorderBrush="White"
-                BorderThickness="2">
+                        Background="Transparent"
+                        BorderBrush="White"
+                        BorderThickness="2">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="30"/>
@@ -61,185 +131,41 @@
                                 </Grid.ColumnDefinitions>
 
                                 <Label x:Name="SearchNx"
-                   Content="Поиск"
-                   Style="{DynamicResource NormalLabelStyle}"
-                   Visibility="Collapsed"
-                   Margin="0, 0, 0, 0"
-                   FontSize="15"
-                   Foreground="LightGray"
+                               Content="Поиск"
+                               Style="{DynamicResource NormalLabelStyle}"
+                               Visibility="Collapsed"
+                               FontSize="15"
+                               Foreground="LightGray"
                                Grid.Column="2"/>
 
                                 <ScrollViewer x:Name="PART_ContentHost"
-                          Focusable="False"
-                          HorizontalScrollBarVisibility="Hidden"
-                          VerticalScrollBarVisibility="Hidden" Grid.Column="2"/>
-
+                                      Focusable="False"
+                                      HorizontalScrollBarVisibility="Hidden"
+                                      VerticalScrollBarVisibility="Hidden"
+                                      Grid.Column="2"/>
                             </Grid>
                         </Border>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="Text" Value="">
-                            <Setter TargetName="SearchNx" 
-                            Property="Visibility" 
+                            <Setter TargetName="SearchNx"
+                            Property="Visibility"
                             Value="Visible"/>
                         </Trigger>
-
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Opacity" Value="0.56"/>
                         </Trigger>
-
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </TextBox.Template>
         </TextBox>
 
-        <DataGrid x:Name="ListComputerDG" 
-          IsReadOnly="True"
-              FontFamily="Arial"
-              FontSize="18 "
-         AutoGenerateColumns="False"
-          Background="Transparent"
-          Grid.ColumnSpan="2"
-         Grid.Row="1" 
-          Foreground="White"
-          BorderBrush="White"
-          CanUserAddRows="False">
-            <DataGrid.ContextMenu>
-
-                <ContextMenu Name="AdtCM">
-
-                    <MenuItem x:Name="Red"
-                              Header="Редактирование"
-                              Click="Red_Click"/>
-
-                    <Separator/>
-                    <MenuItem x:Name="Del"
-                              Header="Удалить"
-                              Click="Del_Click"/>
-
-                </ContextMenu>
-            </DataGrid.ContextMenu>
-
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Серийный номер"
-                                    Binding="{Binding SerialNumberComputer}"
-                                    Width="auto"
-                                    Foreground="White"/>
-
-                <DataGridTextColumn Header="Процессор" 
-                                    Binding="{Binding CPU.NameCPU}"
-                                    Width="auto"
-                                    Foreground="White"/>
-
-                <DataGridTextColumn Header="Мат. плата" 
-                                    Binding="{Binding MotherBoard.NameMotherBoard}"
-                                    Width="auto"
-                                    Foreground="White"/>
-
-                <DataGridTextColumn Header="Первый слот RAM"
-                                    Binding="{Binding RAM1.RAM.NameRAM}"
-                                    Width="auto"
-                                    Foreground="White"/>
-
-                <DataGridTextColumn Header="Второй слот RAM" 
-                                    Binding="{Binding RAM2.RAM.NameRAM, FallbackValue= -}"
-                                    Width="auto"
-                                    Foreground="White"/>
-
-                <DataGridTextColumn Header="Третий слот RAM" 
-                                    Binding="{Binding RAM3.RAM.NameRAM, FallbackValue= -}"
-                                    Width="auto"
-                                    Foreground="White"/>
-
-                <DataGridTextColumn Header="Четвертый слот RAM" 
-                                    Binding="{Binding RAM4.RAM.NameRAM, FallbackValue= -}"
-                                    Width="auto"
-                                    Foreground="White"/>
-
-                <DataGridTextColumn Header="Видеокарта" 
-                                    Binding="{Binding GPU.NameGPU}"
-                                    Width="auto"
-                                    Foreground="White"/>
-
-                <DataGridTextColumn Header="Жесткий диск" 
-                                    Binding="{Binding HDD.NameHDD}"
-                                    Width="auto"
-                                    Foreground="White"/>
-
-                <DataGridTextColumn Header="Охлаждения для процессора"
-                                    Binding="{Binding CPUСooling.NameCPUСooling}"
-                                    Width="auto"
-                                    Foreground="White"/>
-
-                <DataGridTextColumn Header="Твердотельный накопитель"
-                                    Binding="{Binding SSD.NameSSD, FallbackValue= -}"
-                                    Width="auto"
-                                    Foreground="White"/>
-
-                <DataGridTextColumn Header="Корпус"
-                                    Binding="{Binding ComputerCase.NameComputerCase}"
-                                    Width="auto"
-                                    Foreground="White"/>
-
-                <DataGridTextColumn Header="Блок питания"
-                                    Binding="{Binding PowerSupply.NamePowerSupply}"
-                                    Width="auto"
-                                    Foreground="White"/>
-
-                <DataGridTextColumn Header="Гарантия"
-                                    Binding="{Binding GuaranteeComputer, StringFormat='{}{0:dd/MM/yyyy}'}"
-                                    Width="auto"
-                                    Foreground="White"/>
-            </DataGrid.Columns>
-        </DataGrid>
-
-        <materialDesign:PopupBox
-            Background="White"
-            Foreground="White" 
-            Margin="73,0,0,0"
-            StaysOpen="False"
-            >
-            <StackPanel Width="auto">
-                <Button x:Name="ListCPUBtn"
-                        Content="Список процессоров"
-                        Click="ListCPUBtn_Click"/>
-                <Button x:Name="ListCPUCoolingBtn"
-                        Content="Список охлаждения для процессора"
-                        Click="ListCPUCoolingBtn_Click"/>
-                <Button x:Name="ListGPUBtn"
-                        Content="Список видеокарт"
-                        Click="ListGPUBtn_Click"/>
-                <Button x:Name="ListHDDBtn"
-                        Content="Список жестких дисков"
-                        Click="ListHDDBtn_Click"/>
-                <Button x:Name="ListMotherBoardBtn"
-                        Content="Список мат. плат"
-                        Click="ListMotherBoardBtn_Click"/>
-                <Button x:Name="ListComputerCaseBtn"
-                        Content="Список корпусов"
-                        Click="ListComputerCaseBtn_Click"/>
-                <Button x:Name="ListPowerSupplyBtn"
-                        Content="Список блоков питания"
-                        Click="ListPowerSupplyBtn_Click"/>
-                <Button x:Name="ListRAM1Btn"
-                        Content="Список ОЗУ в первый слот"
-                        Click="ListRAM1Btn_Click"/>
-                <Button x:Name="ListRAM2Btn"
-                        Content="Список ОЗУ во второй слот"
-                        Click="ListRAM2Btn_Click"/>
-                <Button x:Name="ListRAM3Btn"
-                        Content="Список ОЗУ в третий слот"
-                        Click="ListRAM3Btn_Click"/>
-                <Button x:Name="ListRAM4Btn"
-                        Content="Список ОЗУ в четвертый слот"
-                        Click="ListRAM4Btn_Click"/>
-                <Button x:Name="ListRAMBtn"
-                        Content="Список ОЗУ"
-                        Click="ListRAMBtn_Click"/>
-                <Button x:Name="ListSSDBtn"
-                        Content="Список твердотельных накопителей"
-                        Click="ListSSDBtn_Click"/>
-            </StackPanel>
-        </materialDesign:PopupBox>
+        <!-- Список компьютеров -->
+        <ScrollViewer Grid.Row="1"
+                      Grid.ColumnSpan="2"
+                      VerticalScrollBarVisibility="Auto"
+                      Margin="10">
+            <StackPanel x:Name="ItemsPanel"/>
+        </ScrollViewer>
     </Grid>
 </Page>

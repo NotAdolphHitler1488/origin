@@ -15,132 +15,158 @@
       Title="DirectorAddPage">
 
     <Border>
+        <!-- Основная сетка: две колонки и две строки -->
         <Grid>
             <Grid.RowDefinitions>
+                <!-- Заголовок -->
                 <RowDefinition Height="80"/>
-                <RowDefinition Height="80"/>
-                <RowDefinition Height="80"/>
-                <RowDefinition Height="80"/>
-                <RowDefinition Height="80"/>
-                <RowDefinition Height="80"/>
-                <RowDefinition Height="70"/>
-                <RowDefinition Height="80"/>
-                <RowDefinition Height="80"/>
-                <RowDefinition/>
+                <!-- Основной контент -->
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <!-- Левый блок: фото -->
+                <ColumnDefinition Width="250"/>
+                <!-- Правый блок: поля ввода -->
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
+            <!-- Заголовок, растянутый на обе колонки -->
             <Label Content="Добавление сотрудника"
-               Style="{StaticResource LabelLogoStyle}"             
-               Grid.ColumnSpan="2"        
-               Grid.Column="0"
-               Grid.Row="0"/>
+                   Style="{StaticResource LabelLogoStyle}"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
 
-            <TextBox x:Name="LastNameTB"
-                 Grid.Row="1"
-                 Grid.Column="0"                    
-                 Grid.ColumnSpan="2"
-                 Margin="200 10 200 10"
-                 FontSize="18"
-                 Style="{StaticResource TextBoxMenu}"
-                 materialDesign:HintAssist.Foreground="White"
-                 materialDesign:HintAssist.FontFamily="Arial"
-                 BorderBrush="Black"
-                 BorderThickness="2"
-                     materialDesign:HintAssist.Hint="Введите фамилию сотрудника"/>
+            <!-- ЛЕВЫЙ БЛОК: Рамка для фото и кнопка -->
+            <StackPanel Grid.Row="1"
+                        Grid.Column="0"
+                        Margin="10"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Center">
+                <!-- Рамка-превью фото -->
+                <Border Width="200"
+                        Height="200"
+                        BorderBrush="White"
+                        BorderThickness="2"
+                        CornerRadius="4"
+                        Background="{StaticResource MaterialDesignPaper}">
+                    <Image x:Name="PhotoPreview"
+                           Stretch="Uniform"/>
+                </Border>
 
-            <TextBox x:Name="FirstNameTB"
-                 Grid.Row="2"
-                 Grid.Column="0"                    
-                 Grid.ColumnSpan="2"
-                 Margin="200 10 200 10"
-                 FontSize="18"
-                 Style="{StaticResource TextBoxMenu}"
-                 materialDesign:HintAssist.Foreground="White"
-                 materialDesign:HintAssist.FontFamily="Arial"
-                 BorderBrush="Black"
-                 BorderThickness="2"
-                     materialDesign:HintAssist.Hint="Введите имя сотрудника"/>
+                <!-- Кнопка "Добавить фото" -->
+                <Button x:Name="AddPhotoBtn"
+                        Content="Добавить фото"
+                        Style="{StaticResource AuthButton}"
+                        Width="200"
+                        Height="55"
+                        Margin="0,10,0,0"
+                        HorizontalAlignment="Center"
+                        Click="AddPhotoBtn_Click"/>
+            </StackPanel>
 
-            <TextBox x:Name="MiddleNameTB"
-                 Grid.Row="3"
-                 Grid.Column="0"
-                 Grid.ColumnSpan="2"
-                 Margin="200 10 200 10"
-                 FontSize="18"
-                 Style="{StaticResource TextBoxMenu}"
-                 materialDesign:HintAssist.Foreground="White"
-                 materialDesign:HintAssist.FontFamily="Arial"
-                 BorderBrush="Black"
-                 BorderThickness="2"
-                     materialDesign:HintAssist.Hint="Введите отчество сотрудника(при наличии)"/>
+            <!-- ПРАВЫЙ БЛОК: Поля ввода, ComboBox и кнопка "Добавить сотрудника" -->
+            <StackPanel Grid.Row="1"
+                        Grid.Column="1"
+                        Margin="20,10,20,10"
+                        VerticalAlignment="Top">
+                <!-- Фамилия -->
+                <TextBox x:Name="LastNameTB"
+                         Width="400"
+                         Margin="0,5"
+                         FontSize="18"
+                         Style="{StaticResource TextBoxMenu}"
+                         materialDesign:HintAssist.Foreground="White"
+                         materialDesign:HintAssist.FontFamily="Arial"
+                         BorderBrush="Black"
+                         BorderThickness="2"
+                         materialDesign:HintAssist.Hint="Введите фамилию сотрудника"/>
 
-            <TextBox x:Name="PhoneTB"
-                 Grid.Row="4"
-                 Grid.Column="0"
-                 Grid.ColumnSpan="2"
-                 Margin="200 10 200 10"
-                 FontSize="18"
-                 Style="{StaticResource TextBoxMenu}"
-                 materialDesign:HintAssist.Foreground="White"
-                 materialDesign:HintAssist.FontFamily="Arial"
-                 BorderBrush="Black"
-                 BorderThickness="2"
-                     materialDesign:HintAssist.Hint="Введите номер телефона сотрудника"/>
+                <!-- Имя -->
+                <TextBox x:Name="FirstNameTB"
+                         Width="400"
+                         Margin="0,5"
+                         FontSize="18"
+                         Style="{StaticResource TextBoxMenu}"
+                         materialDesign:HintAssist.Foreground="White"
+                         materialDesign:HintAssist.FontFamily="Arial"
+                         BorderBrush="Black"
+                         BorderThickness="2"
+                         materialDesign:HintAssist.Hint="Введите имя сотрудника"/>
 
-            <TextBox x:Name="EmailTB"
-                 Grid.Row="5"
-                 Grid.Column="0"
-                 Grid.ColumnSpan="2"
-                 Margin="200 10 200 10"
-                 FontSize="18"
-                 Style="{StaticResource TextBoxMenu}"
-                 materialDesign:HintAssist.Foreground="White"
-                 materialDesign:HintAssist.FontFamily="Arial"
-                 BorderBrush="Black"
-                 BorderThickness="2"
-                     materialDesign:HintAssist.Hint="Введите эл. почту сотрудника"/>
+                <!-- Отчество -->
+                <TextBox x:Name="MiddleNameTB"
+                         Width="400"
+                         Margin="0,5"
+                         FontSize="18"
+                         Style="{StaticResource TextBoxMenu}"
+                         materialDesign:HintAssist.Foreground="White"
+                         materialDesign:HintAssist.FontFamily="Arial"
+                         BorderBrush="Black"
+                         BorderThickness="2"
+                         materialDesign:HintAssist.Hint="Введите отчество сотрудника (при наличии)"/>
 
-            <ComboBox x:Name="UserCb"
-                  Foreground="White"
-                  BorderBrush="Black"
-                  Background="Transparent"
-                  BorderThickness="0 0 0 2"
-                  Grid.Row="6"                  
-                  Grid.Column="0"
-                  Grid.ColumnSpan="2"
-                  FontSize="18"
-                      materialDesign:HintAssist.Hint="Выберите привязку к аккаунту"
-                  SelectedItem="{Binding User}"
-                  DisplayMemberPath="LoginUser"
-                  SelectedValuePath="IdUser"
-                  FontFamily="Arial"
-                  Height="50"
-                  Margin="200,0,200,0"/>
+                <!-- Телефон -->
+                <TextBox x:Name="PhoneTB"
+                         Width="400"
+                         Margin="0,5"
+                         FontSize="18"
+                         Style="{StaticResource TextBoxMenu}"
+                         materialDesign:HintAssist.Foreground="White"
+                         materialDesign:HintAssist.FontFamily="Arial"
+                         BorderBrush="Black"
+                         BorderThickness="2"
+                         materialDesign:HintAssist.Hint="Введите номер телефона сотрудника"/>
 
-            <Button x:Name="SaveBtn"
-                Style="{StaticResource AuthButton}"
-                Content="Добавить сотрудника"
-                HorizontalContentAlignment="Center"
-                VerticalContentAlignment="Center"
-                Click="SaveBtn_Click" 
-                Grid.ColumnSpan="2"
-                Grid.Row="7"
-                Margin="228 10 228 10"/>
+                <!-- Эл. почта -->
+                <TextBox x:Name="EmailTB"
+                         Width="400"
+                         Margin="0,5"
+                         FontSize="18"
+                         Style="{StaticResource TextBoxMenu}"
+                         materialDesign:HintAssist.Foreground="White"
+                         materialDesign:HintAssist.FontFamily="Arial"
+                         BorderBrush="Black"
+                         BorderThickness="2"
+                         materialDesign:HintAssist.Hint="Введите эл. почту сотрудника"/>
 
-            <materialDesign:PackIcon x:Name="Back"
-                         Kind="ArrowBack"
-                         Style="{StaticResource MenuIcon}"
-                         Margin="5 10 10 10"
-                         MouseLeftButtonDown="Back_MouseLeftButtonDown"
-                         Height="50"
-                         Width="50"
-                         VerticalAlignment="Center"/>
+                <!-- ComboBox для привязки к аккаунту -->
+                <ComboBox x:Name="UserCb"
+                          Width="400"
+                          Margin="0,5"
+                          Foreground="White"
+                          BorderBrush="Black"
+                          Background="Transparent"
+                          BorderThickness="0,0,0,2"
+                          FontSize="18"
+                          materialDesign:HintAssist.Hint="    Выберите привязку к аккаунту"
+                          SelectedItem="{Binding User}"
+                          DisplayMemberPath="LoginUser"
+                          SelectedValuePath="IdUser"
+                          FontFamily="Arial" Height="43"/>
 
+                <!-- Кнопка "Добавить сотрудника" -->
+                <Button x:Name="SaveBtn"
+                        Content="Добавить сотрудника"
+                        Style="{StaticResource AuthButton}"
+                        Width="400"
+                        Height="59"
+                        Margin="0,20,0,0"
+                        HorizontalAlignment="Center"
+                        Click="SaveBtn_Click"/>
+
+                <!-- Кнопка "Назад" -->
+                <materialDesign:PackIcon x:Name="Back"
+                                         Kind="ArrowBack"
+                                         Style="{StaticResource MenuIcon}"
+                                         Margin="0,20,0,0"
+                                         HorizontalAlignment="Left"
+                                         Height="40"
+                                         Width="40"
+                                         MouseLeftButtonDown="Back_MouseLeftButtonDown"/>
+            </StackPanel>
         </Grid>
     </Border>
 </Page>

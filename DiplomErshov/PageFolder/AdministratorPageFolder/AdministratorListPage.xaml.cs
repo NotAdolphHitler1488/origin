@@ -42,28 +42,46 @@ namespace DiplomErshov.PageFolder.AdministratorPageFolder
         }
         private void Del_Click(object sender, RoutedEventArgs e)
         {
-            User user = ListAdminDG.SelectedItem as User;
             if (ListAdminDG.SelectedItem == null)
             {
-                MBClass.ErrorMB("Выберите пользователя" +
-                    " для удаления");
+                MBClass.ErrorMB("Выберите пользователя для удаления");
+                return;
             }
-            else
+
+            User user = ListAdminDG.SelectedItem as User;
+
+            if (MBClass.QestionMB($"Удалить пользователя с логином {user.LoginUser}?"))
             {
-                if (MBClass.QestionMB("Удалить " +
-                    $"пользователя с логином " +
-                    $"{user.LoginUser}?"))
+                try
                 {
-                    DBEntities.GetContext().User
-                        .Remove(ListAdminDG.SelectedItem as User);
+                    // Удаление пользователя
+                    DBEntities.GetContext().User.Remove(user);
                     DBEntities.GetContext().SaveChanges();
 
-                    MBClass.InformationMB("Пользователь удален");
+                    MBClass.InformationMB("Пользователь удалён");
                     ListAdminDG.ItemsSource = DBEntities.GetContext()
                         .User.ToList().OrderBy(u => u.LoginUser);
                 }
+                catch
+                {
+                    // Проверка, есть ли сотрудник, связанный с этим пользователем
+                    var employee = DBEntities.GetContext().Staff
+                        .FirstOrDefault(emp => emp.IdUser == user.IdUser);
+
+                    if (employee != null)
+                    {
+                        MBClass.ErrorMB($"Эта учетная запись закреплена за сотрудником: {employee.LastNameStaff}.\n" +
+                            $"Сначала удалите сотрудника.");
+                    }
+                    else
+                    {
+                        MBClass.ErrorMB("Ошибка при удалении пользователя.");
+                    }
+                }
+
             }
         }
+
         private void Plus_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             NavigationService.Navigate(new PageFolder.AdministratorPageFolder.AdministratorAddPage());
